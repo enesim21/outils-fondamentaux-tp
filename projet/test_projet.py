@@ -1,7 +1,8 @@
 import unittest
+from collections import Counter
 
 from projet.chiffrement import chiffrer, dechiffrer, cles_valides, inverse_modulaire
-from projet.attaque import attaque_force_brute, attaque_frequences, rang_cle
+from projet.attaque import attaque_force_brute, attaque_frequences, rang_cle, lettres
 from projet.experiences import lancer_experiences
 
 
@@ -57,15 +58,20 @@ class TestChiffrement(unittest.TestCase):
             with self.subTest(k=k):
                 self.assertEqual(len(attaque_frequences(secret, k=k)), attendu)
 
-    def test_frequences_k1_rate_et_k3_inclut_la_cle(self):
-        # Cas volontairement artificiel : A apparaît 12 fois, E 10 fois, I 8 fois.
-        clair = "A" * 12 + "E" * 10 + "I" * 8
+    def test_frequences_k1_echoue_et_k3_classe_la_cle_premiere(self):
+        clair = (
+            "Les habitants partagent des habitudes, mais ils n'utilisent pas tous "
+            "les mêmes itinéraires ni les mêmes services."
+        )
+        comptes = Counter(lettres(clair))
+        # Dans cette phrase, S apparaît 16 fois et E 15 fois.
+        self.assertEqual(comptes["S"], 16)
+        self.assertEqual(comptes["E"], 15)
         secret = chiffrer(clair, 5, 8)
         candidats_k1 = attaque_frequences(secret, k=1)
         candidats_k3 = attaque_frequences(secret, k=3)
         self.assertIsNone(rang_cle(candidats_k1, 5, 8))
-        self.assertIsNotNone(rang_cle(candidats_k3, 5, 8))
-        self.assertEqual(clair.count("A") - clair.count("E"), 2)
+        self.assertEqual(rang_cle(candidats_k3, 5, 8), 1)
 
     def test_parametre_k_invalide(self):
         for k in (0, 4, 6, 1.0, "3"):
