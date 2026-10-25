@@ -1,5 +1,3 @@
-"""TP6 - Quelques calculs de geometrie dans le plan."""
-
 import math
 import random
 
@@ -21,7 +19,7 @@ def angle(u, v):
     if denominateur == 0:
         raise ValueError("Un vecteur nul n'a pas d'angle.")
     cosinus = produit_scalaire(u, v) / denominateur
-    # On corrige un petit depassement possible a cause des arrondis.
+    # Evite les erreurs d'arrondi.
     cosinus = max(-1, min(1, cosinus))
     return math.degrees(math.acos(cosinus))
 
