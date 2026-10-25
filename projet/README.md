@@ -3,7 +3,7 @@
 Nom : Enes Avsar  
 
 
-J'ai choisi ce sujet car il utilise le PGCD et les calculs modulo vus en TP. Le programme chiffre un message, le dechiffre, puis essaie de retrouver la cle.
+J'ai choisi ce sujet car il utilise le PGCD et les calculs modulo vus en TP et cours. Le programme chiffre un message, le dechiffre, puis essaie de retrouver la cle.
 
 ## Lancer
 
