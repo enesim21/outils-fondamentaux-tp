@@ -27,7 +27,7 @@ Le chiffrement conserve les espaces et la ponctuation pour rendre le message lis
 
 ## 3. Lancer le projet
 
-Depuis la racine du dépôt :
+Depuis la racine de ce dossier :
 
 ```bash
 python -m pip install -r requirements.txt
@@ -36,36 +36,42 @@ python -m tp.test_solutions
 python -m projet.main
 ```
 
-La commande `python -m projet.main` lance **300 essais pour chacune des longueurs 20, 30, 50, 80, 150 et 280 lettres**, soit 1 800 essais. Trois paragraphes français sont utilisés. Pour chaque essai, le programme choisit une fenêtre qui contient exactement le nombre demandé de lettres, puis tire une clé valide au hasard. La graine `20261025` permet de reproduire la même série.
+La commande `python -m projet.main` lance **300 essais pour chacune des longueurs 20, 30, 50, 80, 150 et 280 lettres**, soit 1 800 essais. Cinq paragraphes français de thèmes différents sont utilisés : apprentissage, ville, nature, lecture et voyage. Pour chaque essai, le programme choisit une fenêtre contenant exactement le nombre demandé de lettres, puis tire une clé valide au hasard. La graine `20261025` permet de reproduire la même série. Les fenêtres peuvent se chevaucher ; l'expérience ne prétend donc pas représenter tous les textes français possibles.
 
 Le programme écrit les mesures dans `projet/resultats/experiences.csv` et génère trois graphiques en PNG et SVG :
-- `taux_reussite.png` et `taux_reussite.svg` : taux où le score du khi-deux classe la vraie clé première, pour la force brute et les variantes `k=1` et `k=3).
+- `taux_reussite.png` et `taux_reussite.svg` : taux où le score du khi-deux classe la vraie clé première, pour la force brute et les variantes `k=1` et `k=3`.
 - `presence_cle.png` et `presence_cle.svg` : taux où la vraie clé est présente dans la liste des candidats.
 - `nombre_cles.png` et `nombre_cles.svg` : nombre moyen de clés examinées.
 
+### Graphiques
+
+![Taux de réussite](resultats/taux_reussite.svg)
+
+![Présence de la clé dans les candidats](resultats/presence_cle.svg)
+
 ### Comment les graphiques SVG sont faits
 
-Le fichier `projet/graphique.py` utilise **Matplotlib**. Le code crée une figure, ajoute les courbes ou les barres, les axes, le titre et la légende, puis sauvegarde le graphique deux fois :
+Le fichier `projet/graphique.py` utilise **Matplotlib**. Le code crée une figure, ajoute les courbes ou les barres, les axes, le titre et la légende, puis sauvegarde le graphique en deux formats :
 
 ```python
 plt.savefig(dossier / "taux_reussite.png", dpi=160)
 plt.savefig(dossier / "taux_reussite.svg")
 ```
 
-Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux fichiers sont produits par le programme à partir des données du CSV : le SVG n'est pas dessiné à la main et ne contient pas de résultats inventés.
+Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux fichiers sont générés par le programme à partir des résultats du CSV : ils ne sont pas dessinés à la main. L'axe vertical des courbes commence à 45 % pour rendre visibles les différences entre les méthodes, et la légende est placée en bas à droite.
 
 ## 4. Résultats observés
 
-Les tableaux suivants proviennent d'une exécution du protocole avec la graine `20261025`, 300 essais par longueur, soit 1 800 essais au total. Les taux sont arrondis à un chiffre après la virgule. La colonne `k` précise combien de lettres chiffrées les plus fréquentes sont testées comme correspondantes à E.
+Ces résultats proviennent d'une exécution avec la graine `20261025`, 300 essais par longueur et cinq paragraphes français, soit 1 800 essais. Les taux sont arrondis à un chiffre après la virgule. La colonne `k` indique combien de lettres chiffrées les plus fréquentes sont testées comme correspondantes à E.
 
 ### La vraie clé est-elle classée première ?
 
 | Lettres du message | Force brute | k = 1 | k = 2 | k = 3 | k = 5 |
 |---:|---:|---:|---:|---:|---:|
-| 20  | 96,7 % | 58,7 % | 76,3 % | 82,7 % | 90,0 % |
-| 30  | 98,3 % | 75,0 % | 87,3 % | 91,3 % | 96,7 % |
-| 50  | 100,0 % | 89,3 % | 95,7 % | 98,0 % | 99,3 % |
-| 80  | 100,0 % | 97,0 % | 99,0 % | 99,3 % | 100,0 % |
+| 20  | 91,3 % | 61,0 % | 72,3 % | 77,0 % | 83,0 % |
+| 30  | 98,7 % | 74,0 % | 87,0 % | 91,3 % | 96,3 % |
+| 50  | 100,0 % | 94,0 % | 97,0 % | 99,0 % | 100,0 % |
+| 80  | 100,0 % | 98,3 % | 99,0 % | 99,3 % | 100,0 % |
 | 150 | 100,0 % | 100,0 % | 100,0 % | 100,0 % | 100,0 % |
 | 280 | 100,0 % | 100,0 % | 100,0 % | 100,0 % | 100,0 % |
 
@@ -73,10 +79,10 @@ Les tableaux suivants proviennent d'une exécution du protocole avec la graine `
 
 | Lettres du message | Force brute | k = 1 | k = 2 | k = 3 | k = 5 |
 |---:|---:|---:|---:|---:|---:|
-| 20  | 100,0 % | 60,0 % | 78,3 % | 85,7 % | 93,3 % |
-| 30  | 100,0 % | 76,0 % | 89,0 % | 93,0 % | 98,3 % |
-| 50  | 100,0 % | 89,3 % | 95,7 % | 98,0 % | 99,3 % |
-| 80  | 100,0 % | 97,0 % | 99,0 % | 99,3 % | 100,0 % |
+| 20  | 100,0 % | 63,7 % | 77,7 % | 82,7 % | 90,3 % |
+| 30  | 100,0 % | 74,7 % | 87,7 % | 92,3 % | 97,3 % |
+| 50  | 100,0 % | 94,0 % | 97,0 % | 99,0 % | 100,0 % |
+| 80  | 100,0 % | 98,3 % | 99,0 % | 99,3 % | 100,0 % |
 | 150 | 100,0 % | 100,0 % | 100,0 % | 100,0 % | 100,0 % |
 | 280 | 100,0 % | 100,0 % | 100,0 % | 100,0 % | 100,0 % |
 
@@ -90,28 +96,36 @@ Les tableaux suivants proviennent d'une exécution du protocole avec la graine `
 | Fréquences k = 3 | 36 |
 | Fréquences k = 5 | 60 |
 
-Sur l'ensemble des 1 800 essais, la force brute a inclus la vraie clé **1 800 fois sur 1 800 (100 %)**. Le score du khi-deux l'a classée première **1 785 fois sur 1 800 (99,2 %)** : énumérer toutes les clés garantit que la bonne est dans la liste, mais le classement statistique peut tout de même la placer derrière un autre texte.
+Sur les 1 800 essais, la force brute a inclus la vraie clé **1 800 fois sur 1 800 (100 %)**. Le score du khi-deux l'a classée première dans **1 770 cas sur 1 800 (98,3 %)**. Cela montre qu'énumérer toutes les clés garantit que la bonne est dans la liste, mais pas que le classement statistique la place toujours en première position.
 
-Pour l'attaque par fréquences, augmenter `k` améliore le taux de présence de la clé dans cette série d'expériences, mais augmente le nombre de candidats. Cela ne démontre pas que `k=5` sera toujours meilleur pour tous les textes : les résultats dépendent du contenu des messages et des fréquences observées.
+Pour l'attaque `k=1`, à partir de 50 lettres, le taux « clé présente » est identique au taux « classée première » dans cette série : quand l'hypothèse sur E permet de générer la vraie clé, le score du khi-deux la place première parmi les candidats produits dans ces essais. C'est une observation sur ces cinq textes et cette graine, pas une garantie pour tous les messages français.
+
+### Marge d'incertitude
+
+Chaque taux par longueur repose sur `n = 300` essais. J'utilise l'intervalle de Wilson à 95 % pour donner une idée de l'incertitude d'échantillonnage d'un taux : autour de 50 %, la marge est d'environ **± 5,6 points de pourcentage**. Par exemple, pour la force brute à 20 lettres, 274 succès sur 300 donnent un taux de 91,3 % et un intervalle de Wilson d'environ **[87,6 % ; 94,0 %]**. À 300 succès sur 300, le taux observé est 100 %, mais la borne basse de l'intervalle est environ 98,7 %.
+
+Cette marge décrit seulement l'incertitude liée au nombre d'essais. Elle ne corrige pas le fait que les fenêtres sont tirées de cinq paragraphes seulement et peuvent se chevaucher : on ne peut pas extrapoler ces résultats à tous les styles d'écriture, toutes les langues ou tous les textes.
 
 ## 5. Exemple d'échec de k = 1
 
 La phrase suivante sert de cas d'essai : « Les habitants partagent des habitudes, mais ils n'utilisent pas tous les mêmes itinéraires ni les mêmes services. »
 
-Après normalisation en A-Z, la lettre S apparaît **16 fois** et E **15 fois** : S dépasse donc E d'une occurrence. L'attaque `k=1` suppose que la lettre chiffrée la plus fréquente correspond à E ; dans ce cas, elle suppose à tort que l'image chiffrée de S correspond à E, et la vraie clé n'est pas dans ses candidats.
+Après normalisation en A-Z, la lettre S apparaît **16 fois** et E **15 fois** : S dépasse E d'une occurrence. L'attaque `k=1` suppose que la lettre chiffrée la plus fréquente correspond à E ; dans ce cas, elle suppose à tort que l'image chiffrée de S correspond à E, et la vraie clé n'est pas dans ses candidats.
 
 Avec `k=3`, les trois lettres chiffrées les plus fréquentes sont testées comme pouvant correspondre à E. La lettre chiffrée correspondant réellement à E est alors prise en compte ; pour ce cas construit exprès, la vraie clé est présente et le score du khi-deux la classe première. Ce test explique un mécanisme possible d'échec, mais une seule phrase n'est pas représentative de tous les textes français.
 
 ## 6. Limites
 
-- Les expériences utilisent trois paragraphes français ; elles ne représentent pas tous les sujets, styles ou langues.
+- Les expériences utilisent cinq paragraphes français ; ils couvrent quelques thèmes mais ne représentent pas tous les sujets ou styles.
 - Les fréquences théoriques sont des fréquences françaises arrondies puis normalisées. Elles ne conviennent pas automatiquement à une autre langue.
 - Le khi-deux compare seulement les fréquences individuelles : il ne tient pas compte de l'ordre des lettres, des syllabes ni des mots.
 - Les espaces et la ponctuation sont conservés dans le message chiffré. Cela révèle la longueur des mots et la structure des phrases.
-- Une graine fixe facilite la reproduction des mesures, mais les 1 800 essais restent un échantillon de situations possibles.
+- Une graine fixe facilite la reproduction des mesures, mais les 1 800 essais restent un échantillon de situations possibles et certaines fenêtres peuvent se chevaucher.
 - Les temps de calcul ne sont pas comparés : pour 26 lettres et des messages courts, les petites différences de temps ne permettraient pas de tirer une conclusion solide.
 - Le chiffrement affine est un outil pédagogique, pas une méthode destinée à protéger des données réelles.
 
-## 7. Utilisation des outils et vérification
+## 7. Utilisation de l'IA et vérification
 
-Un assistant IA a aidé à structurer une partie des fonctions d'attaque, du protocole d'expérience et des tests. Une première version avait une faiblesse méthodologique : elle traitait plusieurs essais issus du même extrait comme s'ils étaient indépendants et tirait une conclusion trop forte sur l'effet de la longueur. La version actuelle utilise des fenêtres de texte aléatoires, trois paragraphes, des clés tirées au hasard et une graine fixe. Les 12 tests automatisés de cette version ont été exécutés et réussis ; la série de 1 800 essais utilisée pour les tableaux a également été exécutée avec la graine indiquée.
+J'ai utilisé une aide IA pour proposer une structure initiale des attaques, du protocole expérimental et des tests. J'ai vérifié le fonctionnement par les tests automatisés du dépôt : réversibilité du chiffrement, nombre de clés valides, rejet des paramètres invalides, échec de `k=1` sur un texte construit et cohérence entre le score optimisé et le score recalculé à partir du texte candidat. J'ai aussi vérifié que le programme distingue la présence de la clé de son classement par le khi-deux.
+
+Une première version avait une faiblesse méthodologique : elle traitait des essais issus du même extrait comme s'ils étaient des situations indépendantes et tirait une conclusion trop forte sur l'effet de la longueur. J'ai remplacé ce protocole par cinq paragraphes, des fenêtres aléatoires et des clés tirées au hasard avec une graine fixe. Les chiffres de ce README proviennent de cette nouvelle exécution ; les tests automatisés et les 1 800 essais ont été exécutés avec cette version.
