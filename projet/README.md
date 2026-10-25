@@ -15,7 +15,9 @@ python -m projet.main
 python -m unittest projet.test_methodes -v
 ```
 
-Le programme produit un tableau dans le terminal, un fichier CSV et deux graphiques dans `projet/resultats/`. Le graphique des iterations est aussi disponible ici : [voir le graphique](resultats/iterations.svg).
+Le programme produit un tableau dans le terminal, un fichier CSV et deux graphiques dans `projet/resultats/`.
+
+![Comparaison des iterations](resultats/iterations.svg)
 
 ## Premiers resultats
 
@@ -30,7 +32,9 @@ Avec une tolerance de `1e-10` :
 
 Sur les trois intervalles avec changement de signe, Newton est rapide pour les deux premiers cas. Sur x³ - 2x + 2, il revient a son point de depart et le cycle est detecte. L'hybride trouve une racine, mais prend plus d'iterations que Brent sur cet exemple. La racine double est un contre-exemple utile : les methodes basees sur un changement de signe ne peuvent pas l'encadrer avec l'intervalle choisi.
 
-Les appels de fonction et l'erreur finale sont aussi sauvegardes dans le CSV. Le nombre d'iterations ne suffit pas a lui seul pour comparer toutes les methodes : Newton demande aussi des evaluations de derivee et les points de depart ne sont pas identiques.
+Sur ces quatre cas, Newton echoue une fois sur quatre (25 %), a cause d'un cycle. La dichotomie, l'hybride et Brent echouent aussi une fois sur quatre, mais pour une autre raison : l'intervalle de la racine double ne presente aucun changement de signe. Sur les trois cas encadrables, Newton reussit deux fois sur trois, contre trois sur trois pour les trois methodes avec intervalle.
+
+Les appels de fonction et l'erreur finale sont aussi sauvegardes dans le CSV. Par exemple, pour x² - 2, Newton demande 3 iterations, contre 29 pour la dichotomie et 7 pour Brent. Pour x³ - 2x + 2, Newton detecte un cycle en 2 iterations ; l'hybride reussit en 23 iterations, alors que Brent en prend 9. Le nombre d'iterations ne suffit pas a lui seul pour comparer toutes les methodes : Newton demande aussi des evaluations de derivee et les points de depart ne sont pas identiques.
 
 ## Limites
 
