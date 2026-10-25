@@ -70,7 +70,8 @@ def attaque_force_brute(secret):
     # Le TP5 propose toutes_les_cles. Ici, pour des centaines d'expériences,
     # je précompte les lettres une fois : reconstruire chaque texte avec cette
     # fonction serait inutilement lent. Les clés valides et l'inverse viennent du TP5.
-    compte_chiffre = [texte.count(lettre) for lettre in ALPHABET]
+    compte = Counter(texte)
+    compte_chiffre = [compte.get(lettre, 0) for lettre in ALPHABET]
     candidats = [
         _candidat(texte, compte_chiffre, a, b)
         for a in cles_valides()
