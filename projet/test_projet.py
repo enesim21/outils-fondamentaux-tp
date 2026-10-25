@@ -51,6 +51,12 @@ class TestChiffrement(unittest.TestCase):
         self.assertEqual(len(candidats), 312)
         self.assertEqual(rang_cle(candidats, 5, 8), 1)
 
+    def test_nombre_de_candidats_selon_k(self):
+        secret = chiffrer("ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 2, 5, 8)
+        for k, attendu in ((1, 12), (2, 24), (3, 36), (5, 60)):
+            with self.subTest(k=k):
+                self.assertEqual(len(attaque_frequences(secret, k=k)), attendu)
+
     def test_frequences_k1_rate_et_k3_inclut_la_cle(self):
         # Cas volontairement artificiel : A apparaît 12 fois, E 10 fois, I 8 fois.
         clair = "A" * 12 + "E" * 10 + "I" * 8
