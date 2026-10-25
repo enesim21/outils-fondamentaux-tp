@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="490" viewBox="0 0 820 490" role="img" aria-labelledby="title desc">
 <title id="title">Taux de classement en première position</title>
-<desc id="desc">Résultats issus de 300 essais par longueur, avec cinq textes français et la graine 20261025.</desc>
+<desc id="desc">Résultats de 300 essais par longueur, cinq textes français, graine 20261025. Axe vertical de 50 à 102 pour cent.</desc>
 <rect width="100%" height="100%" fill="white"/>
 <text x="410" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#111827">Taux de classement en première position</text>
-<line x1="100" y1="342.63157894736844" x2="770" y2="342.63157894736844" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="346.63157894736844" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">50%</text>
-<line x1="100" y1="287.89473684210526" x2="770" y2="287.89473684210526" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="291.89473684210526" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">60%</text>
-<line x1="100" y1="233.1578947368421" x2="770" y2="233.1578947368421" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="237.1578947368421" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">70%</text>
-<line x1="100" y1="178.42105263157893" x2="770" y2="178.42105263157893" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="182.42105263157893" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">80%</text>
-<line x1="100" y1="123.68421052631578" x2="770" y2="123.68421052631578" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="127.68421052631578" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">90%</text>
-<line x1="100" y1="68.94736842105266" x2="770" y2="68.94736842105266" stroke="#d1d5db" stroke-width="1"/>
-<text x="88" y="72.94736842105266" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">100%</text>
+<line x1="100" y1="370" x2="770" y2="370" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="374" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">50%</text>
+<line x1="100" y1="310" x2="770" y2="310" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="314" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">60%</text>
+<line x1="100" y1="250" x2="770" y2="250" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="254" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">70%</text>
+<line x1="100" y1="190.00000000000003" x2="770" y2="190.00000000000003" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="194.00000000000003" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">80%</text>
+<line x1="100" y1="130" x2="770" y2="130" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="134" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">90%</text>
+<line x1="100" y1="70" x2="770" y2="70" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="74" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">100%</text>
 <line x1="100" y1="58" x2="100" y2="370" stroke="#4b5563" stroke-width="1.5"/>
 <line x1="100" y1="370" x2="770" y2="370" stroke="#4b5563" stroke-width="1.5"/>
 <line x1="100" y1="370" x2="100" y2="375" stroke="#4b5563"/>
@@ -29,27 +29,27 @@
 <text x="435" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">150</text>
 <line x1="770" y1="370" x2="770" y2="375" stroke="#4b5563"/>
 <text x="770" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">280</text>
-<polyline points="100.0,116.6 125.8,76.1 177.3,68.9 254.6,68.9 435.0,68.9 770.0,68.9" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="100.0" cy="116.6" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<circle cx="125.8" cy="76.1" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<circle cx="177.3" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<circle cx="254.6" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<circle cx="435.0" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<circle cx="770.0" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
-<polyline points="100.0,282.4 125.8,211.3 177.3,101.8 254.6,78.3 435.0,68.9 770.0,68.9" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="100.0" cy="282.4" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<circle cx="125.8" cy="211.3" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<circle cx="177.3" cy="101.8" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<circle cx="254.6" cy="78.3" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<circle cx="435.0" cy="68.9" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<circle cx="770.0" cy="68.9" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
-<polyline points="100.0,194.8 125.8,116.6 177.3,74.4 254.6,72.8 435.0,68.9 770.0,68.9" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="100.0" cy="194.8" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
-<circle cx="125.8" cy="116.6" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
-<circle cx="177.3" cy="74.4" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
-<circle cx="254.6" cy="72.8" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
-<circle cx="435.0" cy="68.9" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
-<circle cx="770.0" cy="68.9" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<polyline points="100.0,122.2 125.8,77.8 177.3,70.0 254.6,70.0 435.0,70.0 770.0,70.0" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="122.2" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="77.8" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="70.0" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="70.0" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="70.0" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="70.0" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<polyline points="100.0,304.0 125.8,226.0 177.3,106.0 254.6,80.2 435.0,70.0 770.0,70.0" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="304.0" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="226.0" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="106.0" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="80.2" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="70.0" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="70.0" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<polyline points="100.0,208.0 125.8,122.2 177.3,76.0 254.6,74.2 435.0,70.0 770.0,70.0" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="208.0" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="122.2" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="76.0" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="74.2" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="70.0" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="70.0" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
 <text x="435" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#111827">Longueur du message (nombre de lettres, espaces exclus)</text>
 <text transform="translate(24 214) rotate(-90)" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#111827">Vraie clé classée première (%)</text>
 <rect x="493" y="233" width="260" height="97" rx="6" fill="white" fill-opacity="0.92" stroke="#d1d5db"/>
