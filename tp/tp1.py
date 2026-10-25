@@ -16,7 +16,7 @@ def dernier_chiffre(n):
 def sans_dernier_chiffre(n):
     return n // 10
 
-
+ 
 def nombre_de_chiffres(n):
     n = abs(n)
     compte = 1
