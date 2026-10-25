@@ -1,36 +1,35 @@
 import unicodedata
 
+from tp.tp5 import pgcd, inverse_modulaire as _inverse_modulaire_tp5
+from tp.tp5 import cles_valides
+
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 TAILLE = len(ALPHABET)
 
 
 def nettoyer(texte):
+    """Retire les accents et met en majuscules sans effacer les espaces."""
     texte = unicodedata.normalize("NFD", texte)
     texte = "".join(c for c in texte if unicodedata.category(c) != "Mn")
     return texte.upper()
 
 
-def pgcd(a, b):
-    a, b = abs(a), abs(b)
-    while b:
-        a, b = b, a % b
-    return a
-
-
-def cles_valides():
-    return [a for a in range(1, TAILLE) if pgcd(a, TAILLE) == 1]
-
-
 def inverse_modulaire(a, modulo=TAILLE):
-    for x in range(modulo):
-        if (a * x) % modulo == 1:
-            return x
-    raise ValueError("Cette cle ne possede pas d'inverse modulo 26.")
+    # Réutilise l'algorithme du TP5, avec le modulo 26 par défaut.
+    return _inverse_modulaire_tp5(a, modulo)
+
+
+def _verifier_cle(a, b):
+    # Si a=2, A (x=0) et N (x=13) donnent le meme resultat, car 2*13=26.
+    # Il faut donc pgcd(a, 26)=1 pour que chaque lettre ait un inverse unique.
+    if type(a) is not int or pgcd(a, TAILLE) != 1:
+        raise ValueError("a doit etre un entier premier avec 26.")
+    if type(b) is not int or not 0 <= b < TAILLE:
+        raise ValueError("b doit etre un entier compris entre 0 et 25.")
 
 
 def chiffrer(texte, a, b):
-    if a not in cles_valides():
-        raise ValueError("a doit etre premier avec 26.")
+    _verifier_cle(a, b)
     resultat = []
     for caractere in nettoyer(texte):
         if caractere in ALPHABET:
@@ -42,8 +41,7 @@ def chiffrer(texte, a, b):
 
 
 def dechiffrer(texte, a, b):
-    if a not in cles_valides():
-        raise ValueError("a doit etre premier avec 26.")
+    _verifier_cle(a, b)
     inverse = inverse_modulaire(a)
     resultat = []
     for caractere in nettoyer(texte):
