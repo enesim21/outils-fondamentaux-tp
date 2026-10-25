@@ -1,12 +1,9 @@
 # Outils fondamentaux
 
 - `tp/` : solutions des TP1 à TP6.
-- `projet/` : comparaison de trois méthodes pour trouver les racines d'une fonction.
+- `projet/` : comparaison de méthodes de recherche de racines.
 
-Lancer : `python -m projet.main`  
-Installer : `python -m pip install -r requirements.txt`  
-Tests : `python -m unittest projet.test_methodes -v`
+Lancer le projet : `python -m projet.main`  
+Tester : `python -m unittest projet.test_methodes -v`
 
-On observe les itérations, l'erreur et les échecs. Newton est rapide sur certains cas, mais peut cycler ; l'hybride arrive à récupérer cet exemple. Les méthodes à intervalle ne trouvent pas la racine double si l'intervalle ne change pas de signe.
-
-
+La description, les resultats et les limites du projet sont dans `projet/README.md`.
