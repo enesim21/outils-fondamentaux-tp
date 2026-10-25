@@ -1,5 +1,3 @@
-"""TP1 - Calcul numerique."""
-
 import math
 import sys
 from fractions import Fraction
@@ -82,7 +80,7 @@ def racines_naives(a, b, c):
 
 
 def racines_stables(a, b, c):
-    # Cette formule evite une soustraction qui perd des chiffres.
+    # Formule plus stable.
     if a == 0:
         raise ValueError("a ne doit pas etre nul.")
     delta = b * b - 4 * a * c
