@@ -2,28 +2,31 @@
 
 Chaque fichier correspond à un TP :
 
-- tp1_calcul_numerique.py : division, boucles, flottants, Héron et équations du second degré.
-- tp2_arithmetique.py : diviseurs, PGCD, nombres premiers et suites.
-- tp3_polynomes_fonctions.py : polynômes, dérivée, recherche de racines et intégrales approchées.
-- tp4_matrices_systemes.py : transposée, produit et résolution d'un système par Gauss.
-- tp5_chiffrement_affine.py : chiffrer, déchiffrer et essayer de retrouver la clé.
-- tp6_geometrie_plan.py : vecteurs, distance, aire, intersections et polygones.
+- `tp1.py` : calculs numériques et méthode de Héron.
+- `tp2.py` : diviseurs, PGCD, nombres premiers et suites.
+- `tp3.py` : polynômes, dérivées et recherche de racines.
+- `tp4.py` : matrices et résolution de systèmes.
+- `tp5.py` : chiffrement affine et analyse de fréquences.
+- `tp6.py` : vecteurs et géométrie plane.
+- `test_solutions.py` : quelques tests pour vérifier les fonctions.
 
-## Lancer les exemples
+## Lancer un TP
 
-Depuis le dossier principal :
+Depuis le dossier principal du dépôt :
 
-    python -m tp.tp1_calcul_numerique
-    python -m tp.tp2_arithmetique
-    python -m tp.tp3_polynomes_fonctions
-    python -m tp.tp4_matrices_systemes
-    python -m tp.tp5_chiffrement_affine
-    python -m tp.tp6_geometrie_plan
+```bash
+python -m tp.tp1
+python -m tp.tp2
+python -m tp.tp3
+python -m tp.tp4
+python -m tp.tp5
+python -m tp.tp6
+```
 
 Pour lancer les tests :
 
-    python -m tp.test_solutions
+```bash
+python -m tp.test_solutions
+```
 
-Les commentaires restent courts. Il faut relire les fonctions et vérifier les résultats avec les exemples du cours avant le rendu.
-
-Utilisation de l'IA : un assistant a aidé à proposer et réorganiser certaines fonctions. Les tests ont été exécutés, mais les observations personnelles demandées dans les énoncés restent à compléter.
+Les commentaires sont courts. Il faut relire les fonctions et comparer les résultats avec les énoncés du cours avant le rendu.
