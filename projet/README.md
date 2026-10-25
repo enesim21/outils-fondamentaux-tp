@@ -46,7 +46,7 @@ Après avoir exécuté le programme, compléter cette section à partir de `expe
 - Nombre moyen de candidats examinés pour `k = 1, 2, 3, 5` : **[À COMPLÉTER PAR MOI]**.
 - Exemple d'échec observé et interprétation personnelle : **[À COMPLÉTER PAR MOI]**.
 
-Le test artificiel inclus dans `test_projet.py` illustre un échec précis de `k = 1` : le texte clair contient 12 `A`, 10 `E` et 8 `I`. A dépasse donc E de 2 occurrences ; l'image chiffrée de A devient la plus fréquente, l'hypothèse de `k = 1` n'inclut pas la bonne clé, tandis que `k = 3` inclut la lettre chiffrée correspondant à E. Ce test isole le mécanisme de l'échec ; ce n'est pas un échantillon représentatif du français.
+Le test d'échec utilise cette phrase française : « Les habitants partagent des habitudes, mais ils n'utilisent pas tous les mêmes itinéraires ni les mêmes services. » Après normalisation en A-Z, S apparaît 16 fois et E 15 : S dépasse donc E d'une occurrence. Avec `k = 1`, le programme suppose que l'image chiffrée de S correspond à E et la bonne clé n'est pas dans les candidats ; avec `k = 3`, l'image chiffrée de E est aussi testée, et dans ce cas la bonne clé arrive première au score du khi-deux.
 
 ## Limites
 
