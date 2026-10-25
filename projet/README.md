@@ -31,4 +31,3 @@ Les temps sont dans le CSV, mais ils peuvent varier selon l'ordinateur. La force
 
 Le chiffrement affine est facile a casser et ne doit pas servir a proteger de vraies donnees. Les frequences de lettres ne suffisent pas toujours a reconnaitre un texte, surtout s'il est court.
 
-Une aide IA a servi a organiser une partie du code. Je dois relire les fonctions et pouvoir expliquer les tests et les resultats.
