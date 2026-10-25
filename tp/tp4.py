@@ -1,5 +1,3 @@
-"""TP4 - Matrices et resolution de systemes."""
-
 
 def transposee(A):
     return [[A[i][j] for i in range(len(A))] for j in range(len(A[0]))]
@@ -31,7 +29,7 @@ def resoudre(A, b, tolerance=1e-14):
     M = [list(map(float, A[i])) + [float(b[i])] for i in range(n)]
 
     for k in range(n):
-        # On choisit le plus grand pivot de la colonne.
+        # Pivot maximal.
         pivot = max(range(k, n), key=lambda i: abs(M[i][k]))
         if abs(M[pivot][k]) < tolerance:
             raise ValueError("Le systeme n'a pas de solution unique.")
@@ -71,7 +69,7 @@ def matrice_hilbert(n):
 
 
 def determinant(A):
-    # On reprend l'elimination de Gauss et on multiplie les pivots.
+    # Elimination de Gauss.
     M = [list(map(float, ligne)) for ligne in A]
     n = len(M)
     det = 1
