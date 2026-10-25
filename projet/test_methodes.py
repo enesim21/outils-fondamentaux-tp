@@ -5,6 +5,7 @@ from projet.fonctions import (
     f_cosinus, df_cosinus, f_racine_double, df_racine_double,
 )
 from projet.methodes import dichotomie, newton, hybride
+from projet.experiences import comparer
 
 
 class TestMethodes(unittest.TestCase):
@@ -33,6 +34,14 @@ class TestMethodes(unittest.TestCase):
         r = hybride(f_cosinus, df_cosinus, 0, 1, 0.5)
         self.assertTrue(r["succes"])
         self.assertLess(abs(f_cosinus(r["racine"])), 1e-8)
+
+    def test_comparaison_avec_brent(self):
+        resultats = comparer()
+        self.assertEqual(len(resultats), 16)
+        ref = next(r for r in resultats
+                   if r["fonction"] == "cycle_de_newton"
+                   and r["methode"] == "Brent (SciPy)")
+        self.assertTrue(ref["succes"])
 
     def test_racine_double_et_limite_dichotomie(self):
         r = newton(f_racine_double, df_racine_double, 1.5)
