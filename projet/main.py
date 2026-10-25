@@ -1,32 +1,31 @@
-from pathlib import Path
-
-from projet.experiences import comparer, enregistrer_csv
-from projet.graphique import tracer
+from projet.chiffrement import chiffrer, dechiffrer
+from projet.attaque import attaque_force_brute, attaque_frequences, rang_cle
+from projet.experiences import lancer_experiences, enregistrer
+from projet.graphique import creer_graphiques
 
 
 def main():
-    resultats = comparer()
+    message = "LE CODE SECRET EST CACHE DANS CE MESSAGE"
+    a, b = 5, 8
+    secret = chiffrer(message, a, b)
 
-    print(f"{'Fonction':20} {'Methode':14} {'OK':4} {'Iter.':6} "
-          f"{'f(x)':12} {'Appels f':9} {'Appels df':10}")
-    print("-" * 84)
+    print("Message :", message)
+    print("Message chiffre :", secret)
+    print("Message dechiffre :", dechiffrer(secret, a, b))
+    print("\nNombre de cles valides : 312")
 
-    for r in resultats:
-        erreur = r["erreur"]
-        erreur_txt = "-" if erreur is None else f"{erreur:.2e}"
-        statut = "oui" if r["succes"] else "non"
+    brute = attaque_force_brute(secret)
+    frequence = attaque_frequences(secret)
+    print("Candidats par force brute :", len(brute))
+    print("Candidats par frequences :", len(frequence))
+    print("Rang de la cle en force brute :", rang_cle(brute, a, b))
+    print("Rang de la cle par frequences :", rang_cle(frequence, a, b))
 
-        print(f"{r['fonction']:20} {r['methode']:14} {statut:4} "
-              f"{r['iterations']:<6} {erreur_txt:12} "
-              f"{r['evaluations_f']:<9} {r['evaluations_df']:<10}")
-        if not r["succes"]:
-            print("  ", r["raison"])
-
-    dossier = Path(__file__).resolve().parent / "resultats"
-    chemin = enregistrer_csv(resultats, dossier)
-    tracer(resultats, dossier)
-    print(f"\nCSV : {chemin}")
-    print(f"Graphiques : {dossier}")
+    lignes = lancer_experiences()
+    chemin = enregistrer(lignes)
+    creer_graphiques(lignes)
+    print("\nExperiences enregistrees dans :", chemin)
+    print("Graphiques enregistres dans projet/resultats/")
 
 
 if __name__ == "__main__":
