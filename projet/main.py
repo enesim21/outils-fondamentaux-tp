@@ -8,7 +8,7 @@ def main():
     resultats = comparer()
 
     print(f"{'Fonction':20} {'Methode':14} {'OK':4} {'Iter.':6} "
-          f"{'f(x)':12} {'Appels f':9} {'Appels f\u2032':10}")
+          f"{'f(x)':12} {'Appels f':9} {'Appels df':10}")
     print("-" * 84)
 
     for r in resultats:
