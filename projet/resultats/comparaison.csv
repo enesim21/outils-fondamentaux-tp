@@ -1,0 +1,13 @@
+fonction,methode,racine,iterations,evaluations_f,evaluations_df,erreur,succes,raison,pas_newton,pas_dichotomie
+racine_de_2,Dichotomie,1.4142135623842478,29,32,0,3.154454475406965e-11,True,Precision atteinte.,0,29
+racine_de_2,Newton,1.4142135623746899,3,5,3,4.510614104447086e-12,True,Precision atteinte.,3,0
+racine_de_2,Hybride,1.4142135623746899,3,7,3,4.510614104447086e-12,True,Precision atteinte.,3,0
+cosinus,Dichotomie,0.7390851331874728,30,33,0,4.633871064640971e-11,True,Precision atteinte.,0,30
+cosinus,Newton,0.7390851332151607,4,6,4,0.0,True,Precision atteinte.,4,0
+cosinus,Hybride,0.7390851332151607,4,8,4,0.0,True,Precision atteinte.,4,0
+cycle_de_newton,Dichotomie,-1.7692923542344943,34,37,0,3.057820663343591e-11,True,Precision atteinte.,0,34
+cycle_de_newton,Newton,0.0,2,3,2,2.0,False,Cycle detecte.,2,0
+cycle_de_newton,Hybride,-1.7692923542507566,23,27,23,8.961942299379189e-11,True,Precision atteinte.,6,17
+racine_double,Dichotomie,,0,0,0,,False,L'intervalle doit contenir un changement de signe.,0,0
+racine_double,Newton,1.0000076293945312,16,18,16,5.820766091346741e-11,True,Precision atteinte.,16,0
+racine_double,Hybride,,0,0,0,,False,L'intervalle doit contenir un changement de signe.,0,0
