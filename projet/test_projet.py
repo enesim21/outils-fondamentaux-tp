@@ -2,13 +2,19 @@ import unittest
 from collections import Counter
 
 from projet.chiffrement import chiffrer, dechiffrer, cles_valides, inverse_modulaire
-from projet.attaque import attaque_force_brute, attaque_frequences, rang_cle, lettres
+from projet.attaque import (
+    FREQUENCES_FR_NORMALISEES, attaque_force_brute, attaque_frequences, rang_cle, lettres
+)
 from projet.experiences import lancer_experiences
 
 
 class TestChiffrement(unittest.TestCase):
     def test_nombre_de_cles(self):
         self.assertEqual(len(cles_valides()) * 26, 312)
+
+
+    def test_frequences_fr_normalisees(self):
+        self.assertAlmostEqual(sum(FREQUENCES_FR_NORMALISEES.values()), 1.0)
 
     def test_chiffrer_dechiffrer_conserve_espaces(self):
         texte = "Bonjour, le message est secret !"
