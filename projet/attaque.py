@@ -14,6 +14,11 @@ FREQUENCES_FR = {
     "Y": 0.003, "Z": 0.003,
 }
 
+# Les fréquences sont arrondies ; on les normalise pour que leur somme fasse 1.
+TOTAL_FREQUENCES = sum(FREQUENCES_FR.values())
+FREQUENCES_FR_NORMALISEES = {
+    lettre: valeur / TOTAL_FREQUENCES for lettre, valeur in FREQUENCES_FR.items()
+}
 K_AUTORISES = (1, 2, 3, 5)
 
 
@@ -31,7 +36,7 @@ def score_frequences(texte):
     score = 0.0
     for lettre in ALPHABET:
         observe = compte.get(lettre, 0)
-        attendu = n * FREQUENCES_FR[lettre]
+        attendu = n * FREQUENCES_FR_NORMALISEES[lettre]
         if attendu > 0:
             score += (observe - attendu) ** 2 / attendu
     return score
@@ -40,7 +45,7 @@ def score_frequences(texte):
 def _score_compte(compte, n):
     score = 0.0
     for numero, lettre in enumerate(ALPHABET):
-        attendu = n * FREQUENCES_FR[lettre]
+        attendu = n * FREQUENCES_FR_NORMALISEES[lettre]
         if attendu > 0:
             score += (compte[numero] - attendu) ** 2 / attendu
     return score
