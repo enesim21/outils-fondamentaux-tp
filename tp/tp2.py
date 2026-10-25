@@ -1,5 +1,3 @@
-"""TP2 - Diviseurs, PGCD et nombres premiers."""
-
 
 def diviseurs(n):
     resultat = []
