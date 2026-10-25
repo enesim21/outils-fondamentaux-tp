@@ -6,10 +6,10 @@
 Depuis la racine du dépôt :
 
 ```bash
+python -m pip install -r requirements.txt
 python -m tp.test_solutions
 python -m unittest projet.test_projet -v
-python -m pip install -r requirements.txt
 python -m projet.main
 ```
 
-Le dernier lancement génère le CSV et les graphiques dans `projet/resultats/`.
+Le dernier lancement génère le CSV détaillé et les trois graphiques PNG/SVG dans `projet/resultats/`.
