@@ -14,7 +14,6 @@ def creer_graphiques(lignes, dossier=None):
         dossier = Path(__file__).resolve().parent / "resultats"
     dossier = Path(dossier)
     dossier.mkdir(parents=True, exist_ok=True)
-
     longueurs = sorted({int(ligne["longueur_lettres"]) for ligne in lignes})
     groupes = {
         longueur: [ligne for ligne in lignes if int(ligne["longueur_lettres"]) == longueur]
@@ -31,12 +30,12 @@ def creer_graphiques(lignes, dossier=None):
         valeurs = [_taux(groupes[longueur], colonne) for longueur in longueurs]
         plt.plot(longueurs, valeurs, marker="o", linewidth=2, label=etiquette)
     plt.xticks(longueurs)
-    plt.ylim(0, 100)
+    plt.ylim(45, 102)
     plt.xlabel("Longueur du message (nombre de lettres, espaces exclus)")
     plt.ylabel("Vraie clé classée première (%)")
     plt.title("Taux de classement en première position")
     plt.grid(axis="y", alpha=0.3)
-    plt.legend()
+    plt.legend(loc="lower right")
     plt.tight_layout()
     plt.savefig(dossier / "taux_reussite.png", dpi=160)
     plt.savefig(dossier / "taux_reussite.svg")
@@ -52,18 +51,17 @@ def creer_graphiques(lignes, dossier=None):
         valeurs = [_taux(groupes[longueur], colonne) for longueur in longueurs]
         plt.plot(longueurs, valeurs, marker="o", linewidth=2, label=etiquette)
     plt.xticks(longueurs)
-    plt.ylim(0, 100)
+    plt.ylim(45, 102)
     plt.xlabel("Longueur du message (nombre de lettres, espaces exclus)")
     plt.ylabel("Vraie clé présente dans les candidats (%)")
     plt.title("Présence de la clé dans les candidats")
     plt.grid(axis="y", alpha=0.3)
-    plt.legend()
+    plt.legend(loc="lower right")
     plt.tight_layout()
     plt.savefig(dossier / "presence_cle.png", dpi=160)
     plt.savefig(dossier / "presence_cle.svg")
     plt.close()
 
-    # Les moyennes sont calculées depuis les candidats réellement produits.
     colonnes = (
         ("brute_nb_cles", "Force brute"),
         ("k1_nb_cles", "Fréquences k=1"),
