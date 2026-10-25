@@ -1,12 +1,12 @@
 """Quelques tests rapides pour les fonctions des TP."""
 
 import math
-from tp import tp1_calcul_numerique as tp1
-from tp import tp2_arithmetique as tp2
-from tp import tp3_polynomes_fonctions as tp3
-from tp import tp4_matrices_systemes as tp4
-from tp import tp5_chiffrement_affine as tp5
-from tp import tp6_geometrie_plan as tp6
+from tp import tp1
+from tp import tp2
+from tp import tp3
+from tp import tp4
+from tp import tp5
+from tp import tp6
 
 # TP1
 assert tp1.division_euclidienne(2026, 7) == (289, 3)
