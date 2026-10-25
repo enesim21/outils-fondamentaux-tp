@@ -89,8 +89,8 @@ Avec `k=3`, le programme essaie trois lettres chiffrées comme correspondantes p
 
 ## Limites
 
-Les textes utilisés sont cinq paragraphes écrits pour ces expériences, pas un grand corpus. Les fréquences sont celles du français et ne conviennent pas forcément à une autre langue. Le score compare les fréquences des lettres mais ne regarde pas leur ordre ni les mots. Comme les espaces et la ponctuation restent dans le texte chiffré, on voit encore la longueur des mots. Enfin, les expériences utilisent une graine fixe pour pouvoir être répétées, mais elles ne couvrent pas toutes les situations possibles. Je ne compare pas les temps de calcul car les écarts seraient trop faibles pour tirer une conclusion solide.
+J'ai utilisé cinq textes assez courts, donc les résultats ne représentent pas tous les textes français. Les fréquences sont prévues pour le français et le programme ne regarde que les lettres : il ne tient pas compte de l'ordre des lettres ni des mots. Les espaces restent visibles dans le message chiffré, ce qui donne déjà un indice sur la longueur des mots. Je n'ai pas comparé les temps de calcul, car les différences sont trop petites pour être vraiment utiles ici.
 
-Le chiffrement affine est facile à casser et ne doit pas être utilisé pour protéger de vraies données.
+Le chiffrement affine reste facile à casser ; il ne faut pas l'utiliser pour protéger de vraies données.
 
-J'ai utilisé une aide IA pour préparer une première version du code et des tests. Les tests du projet vérifient notamment le déchiffrement, les clés invalides et un cas où l'attaque `k=1` échoue. Une première version utilisait plusieurs extraits du même texte, ce qui ne permettait pas de bien comparer les longueurs ; les expériences ont ensuite été refaites avec des fenêtres prises dans cinq textes et une graine fixe.
+J'ai utilisé ChatGPT pour m'aider sur une partie du code et des tests. Les tests vérifient le chiffrement et le déchiffrement, le refus des clés invalides et un exemple où l'attaque `k=1` se trompe. Au début, les expériences utilisaient des extraits du même texte. Les résultats dépendaient donc trop de ce texte, alors le programme a été changé pour faire les essais sur cinq textes différents et comparer séparément la présence de la clé et son classement.
