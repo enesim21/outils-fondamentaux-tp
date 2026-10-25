@@ -58,7 +58,7 @@ plt.savefig(dossier / "taux_reussite.png", dpi=160)
 plt.savefig(dossier / "taux_reussite.svg")
 ```
 
-Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux fichiers sont générés par le programme à partir des résultats du CSV : ils ne sont pas dessinés à la main. L'axe vertical des courbes commence à 50 % pour rendre visibles les différences entre les méthodes, et la légende est placée en bas à droite.
+Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux SVG affichés dans ce README sont des aperçus vectoriels construits à partir des taux calculés lors de l'exécution de référence. Quand le programme est relancé, `graphique.py` génère les fichiers PNG et SVG depuis le CSV ; la mise en page Matplotlib peut légèrement différer des aperçus affichés ici. L'axe vertical des courbes commence à 50 % pour rendre visibles les différences entre les méthodes, et la légende est placée en bas à droite.
 
 ## 4. Résultats observés
 
@@ -116,7 +116,7 @@ Avec `k=3`, les trois lettres chiffrées les plus fréquentes sont testées comm
 
 ## 6. Limites
 
-- Les expériences utilisent cinq paragraphes français ; ils couvrent quelques thèmes mais ne représentent pas tous les sujets ou styles.
+- Les expériences utilisent cinq paragraphes français d'essai, rédigés pour ce projet, et non un corpus de référence représentatif ; ils ne couvrent pas tous les sujets ou styles.
 - Les fréquences théoriques sont des fréquences françaises arrondies puis normalisées. Elles ne conviennent pas automatiquement à une autre langue.
 - Le khi-deux compare seulement les fréquences individuelles : il ne tient pas compte de l'ordre des lettres, des syllabes ni des mots.
 - Les espaces et la ponctuation sont conservés dans le message chiffré. Cela révèle la longueur des mots et la structure des phrases.
