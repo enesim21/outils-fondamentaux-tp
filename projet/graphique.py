@@ -34,7 +34,7 @@ def tracer_erreurs(resultats, chemin):
     plt.bar(etiquettes, erreurs)
     plt.yscale("log")
     plt.ylabel("Valeur absolue de f(racine)")
-    plt.title("Erreur finale (echelle logarithmique)")
+    plt.title("Erreur finale (0 affiche a 1e-16)")
     plt.xticks(rotation=30, ha="right")
     plt.tight_layout()
     plt.savefig(chemin, dpi=150)
