@@ -5,7 +5,7 @@ Groupe : [À COMPLÉTER PAR MOI]
 
 ## Objectif
 
-Le projet étudie le chiffrement affine : une lettre numérotée `x` devient `(a*x + b) modulo 26`. La valeur `a` doit être première avec 26 pour que le chiffrement soit réversible. Il y a 12 valeurs possibles pour `a` et 26 pour `b`, soit 312 clés.
+Le projet étudie le chiffrement affine : une lettre numérotée `x` devient `(a*x + b) modulo 26`. La valeur `a` doit être première avec 26 pour que le chiffrement soit réversible. Il y a 12 valeurs possibles pour `a` et 26 pour `b`, soit 312 clés. Les fréquences françaises sont arrondies dans le code ; elles sont normalisées avant le khi-deux afin que les fréquences théoriques totalisent 100 %.
 
 Le TP5 implémente déjà le chiffrement affine, le PGCD, les inverses modulaires, l'énumération de clés et l'hypothèse « la lettre la plus fréquente correspond à E ». Le projet réutilise le PGCD, les inverses, les clés valides et le nettoyage des lettres du TP5. Je n'appelle pas directement `toutes_les_cles` dans la boucle expérimentale : cette fonction reconstruit le texte pour chaque clé, alors qu'ici je peux compter les lettres une seule fois et calculer le score de chaque clé à partir de ces comptes. L'attaque par fréquences généralise le principe de `casser_par_frequences` à `k = 1, 2, 3, 5`, et le projet ajoute le score du khi-deux et des expériences reproductibles avec des fenêtres aléatoires.
 
@@ -41,8 +41,8 @@ Après avoir exécuté le programme, compléter cette section à partir de `expe
 
 - Taux où la bonne clé est présente pour la force brute : **[À COMPLÉTER PAR MOI]**.
 - Taux où la force brute classe la bonne clé première : **[À COMPLÉTER PAR MOI]**.
-- Taux « clé présente » pour les attaques `k = 1` et `k = 3`, selon la longueur : **[À COMPLÉTER PAR MOI]**.
-- Taux « rang 1 » pour `k = 1` et `k = 3`, selon la longueur : **[À COMPLÉTER PAR MOI]**.
+- Taux « clé présente » pour les attaques `k = 1, 2, 3, 5`, selon la longueur : **[À COMPLÉTER PAR MOI]**.
+- Taux « rang 1 » pour les attaques `k = 1, 2, 3, 5`, selon la longueur : **[À COMPLÉTER PAR MOI]**.
 - Nombre moyen de candidats examinés pour `k = 1, 2, 3, 5` : **[À COMPLÉTER PAR MOI]**.
 - Exemple d'échec observé et interprétation personnelle : **[À COMPLÉTER PAR MOI]**.
 
