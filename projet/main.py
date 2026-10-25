@@ -15,25 +15,22 @@ def _taux(lignes, colonne):
 
 
 def afficher_bilan(lignes):
-    print("\nBilan des expériences")
-    print("Taux = vraie clé classée première par le score du khi-deux")
-    print("Longueur | Force brute | Fréquences k=1 | Fréquences k=3")
+    print("\nTaux de classement en première position par le khi-deux")
+    entete = "Lettres | Force brute | " + " | ".join(f"k={k}" for k in K_AUTORISES)
+    print(entete)
     for longueur in LONGUEURS_LETTRES:
         groupe = [ligne for ligne in lignes if ligne["longueur_lettres"] == longueur]
-        print(
-            f"{longueur:>8} | {_taux(groupe, 'brute_rang1'):>10.1f}% | "
-            f"{_taux(groupe, 'k1_rang1'):>13.1f}% | {_taux(groupe, 'k3_rang1'):>13.1f}%"
-        )
+        valeurs = [_taux(groupe, "brute_rang1")]
+        valeurs += [_taux(groupe, f"k{k}_rang1") for k in K_AUTORISES]
+        print(f"{longueur:>7} | " + " | ".join(f"{v:>8.1f}%" for v in valeurs))
 
-    print("\nPart des essais où la vraie clé est présente dans les candidats")
-    print("Longueur | Force brute | Fréquences k=1 | Fréquences k=3")
+    print("\nPrésence de la vraie clé dans les candidats")
+    print(entete)
     for longueur in LONGUEURS_LETTRES:
         groupe = [ligne for ligne in lignes if ligne["longueur_lettres"] == longueur]
-        print(
-            f"{longueur:>8} | {_taux(groupe, 'brute_cle_presente'):>10.1f}% | "
-            f"{_taux(groupe, 'k1_cle_presente'):>13.1f}% | "
-            f"{_taux(groupe, 'k3_cle_presente'):>13.1f}%"
-        )
+        valeurs = [_taux(groupe, "brute_cle_presente")]
+        valeurs += [_taux(groupe, f"k{k}_cle_presente") for k in K_AUTORISES]
+        print(f"{longueur:>7} | " + " | ".join(f"{v:>8.1f}%" for v in valeurs))
 
     print("\nNombre moyen de clés examinées")
     for k in K_AUTORISES:
