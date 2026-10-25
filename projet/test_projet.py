@@ -3,7 +3,7 @@ from collections import Counter
 
 from projet.chiffrement import chiffrer, dechiffrer, cles_valides, inverse_modulaire
 from projet.attaque import (
-    FREQUENCES_FR_NORMALISEES, attaque_force_brute, attaque_frequences, rang_cle, lettres
+    FREQUENCES_FR_NORMALISEES, attaque_force_brute, attaque_frequences, rang_cle, lettres, score_frequences
 )
 from projet.experiences import lancer_experiences
 
@@ -57,6 +57,10 @@ class TestChiffrement(unittest.TestCase):
         candidats = attaque_force_brute(secret)
         self.assertEqual(len(candidats), 312)
         self.assertEqual(rang_cle(candidats, 5, 8), 1)
+        for candidat in candidats:
+            self.assertAlmostEqual(
+                candidat["score"], score_frequences(candidat["texte"]), places=8
+            )
 
     def test_nombre_de_candidats_selon_k(self):
         secret = chiffrer("ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 2, 5, 8)
