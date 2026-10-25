@@ -9,4 +9,4 @@ Tests : `python -m unittest projet.test_methodes -v`
 
 On observe les itérations, l'erreur et les échecs. Newton est rapide sur certains cas, mais peut cycler ; l'hybride arrive à récupérer cet exemple. Les méthodes à intervalle ne trouvent pas la racine double si l'intervalle ne change pas de signe.
 
-Une IA a aidé à écrire et organiser une partie du code. Les tests automatiques ont été exécutés ; l'analyse des résultats reste à compléter.
+
