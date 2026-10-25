@@ -51,14 +51,14 @@ Le programme écrit les mesures dans `projet/resultats/experiences.csv` et gén�
 
 ### Comment les graphiques SVG sont faits
 
-Le fichier `projet/graphique.py` utilise **Matplotlib**. Le code crée une figure, ajoute les courbes ou les barres, les axes, le titre et la légende, puis sauvegarde le graphique en deux formats :
+Le fichier `projet/graphique.py` utilise **Matplotlib**. Le code crée une figure, ajoute les courbes ou les barres, les axes, le titre et la légende, puis sauvegarde le graphique en deux formats. Les deux SVG publiés ici sont des aperçus vectoriels des taux calculés par le programme ; un nouveau lancement régénère les SVG et les PNG à partir des résultats CSV :
 
 ```python
 plt.savefig(dossier / "taux_reussite.png", dpi=160)
 plt.savefig(dossier / "taux_reussite.svg")
 ```
 
-Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux fichiers sont générés par le programme à partir des résultats du CSV : ils ne sont pas dessinés à la main. L'axe vertical des courbes commence à 45 % pour rendre visibles les différences entre les méthodes, et la légende est placée en bas à droite.
+Le PNG est une image matricielle, tandis que le SVG est un dessin vectoriel décrit par du texte (axes, lignes, textes et formes). Les deux fichiers sont générés par le programme à partir des résultats du CSV : ils ne sont pas dessinés à la main. L'axe vertical des courbes commence à 50 % pour rendre visibles les différences entre les méthodes, et la légende est placée en bas à droite.
 
 ## 4. Résultats observés
 
