@@ -1,7 +1,7 @@
 # Casser un code affine
 
 Nom : Enes Avsar  
-Groupe : à compléter
+
 
 J'ai choisi ce sujet car il utilise le PGCD et les calculs modulo vus en TP. Le programme chiffre un message, le dechiffre, puis essaie de retrouver la cle.
 
