@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="490" viewBox="0 0 820 490" role="img" aria-labelledby="title desc">
+<title id="title">Taux de classement en première position</title>
+<desc id="desc">Résultats issus de 300 essais par longueur, avec cinq textes français et la graine 20261025.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="410" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#111827">Taux de classement en première position</text>
+<line x1="100" y1="342.63157894736844" x2="770" y2="342.63157894736844" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="346.63157894736844" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">50%</text>
+<line x1="100" y1="287.89473684210526" x2="770" y2="287.89473684210526" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="291.89473684210526" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">60%</text>
+<line x1="100" y1="233.1578947368421" x2="770" y2="233.1578947368421" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="237.1578947368421" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">70%</text>
+<line x1="100" y1="178.42105263157893" x2="770" y2="178.42105263157893" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="182.42105263157893" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">80%</text>
+<line x1="100" y1="123.68421052631578" x2="770" y2="123.68421052631578" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="127.68421052631578" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">90%</text>
+<line x1="100" y1="68.94736842105266" x2="770" y2="68.94736842105266" stroke="#d1d5db" stroke-width="1"/>
+<text x="88" y="72.94736842105266" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#374151">100%</text>
+<line x1="100" y1="58" x2="100" y2="370" stroke="#4b5563" stroke-width="1.5"/>
+<line x1="100" y1="370" x2="770" y2="370" stroke="#4b5563" stroke-width="1.5"/>
+<line x1="100" y1="370" x2="100" y2="375" stroke="#4b5563"/>
+<text x="100" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">20</text>
+<line x1="125.76923076923077" y1="370" x2="125.76923076923077" y2="375" stroke="#4b5563"/>
+<text x="125.76923076923077" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">30</text>
+<line x1="177.30769230769232" y1="370" x2="177.30769230769232" y2="375" stroke="#4b5563"/>
+<text x="177.30769230769232" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">50</text>
+<line x1="254.6153846153846" y1="370" x2="254.6153846153846" y2="375" stroke="#4b5563"/>
+<text x="254.6153846153846" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">80</text>
+<line x1="435" y1="370" x2="435" y2="375" stroke="#4b5563"/>
+<text x="435" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">150</text>
+<line x1="770" y1="370" x2="770" y2="375" stroke="#4b5563"/>
+<text x="770" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">280</text>
+<polyline points="100.0,116.6 125.8,76.1 177.3,68.9 254.6,68.9 435.0,68.9 770.0,68.9" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="116.6" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="76.1" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="68.9" r="4" fill="#2563eb" stroke="white" stroke-width="1"/>
+<polyline points="100.0,282.4 125.8,211.3 177.3,101.8 254.6,78.3 435.0,68.9 770.0,68.9" fill="none" stroke="#ea580c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="282.4" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="211.3" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="101.8" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="78.3" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="68.9" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="68.9" r="4" fill="#ea580c" stroke="white" stroke-width="1"/>
+<polyline points="100.0,194.8 125.8,116.6 177.3,74.4 254.6,72.8 435.0,68.9 770.0,68.9" fill="none" stroke="#16a34a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="100.0" cy="194.8" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="125.8" cy="116.6" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="177.3" cy="74.4" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="254.6" cy="72.8" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="435.0" cy="68.9" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<circle cx="770.0" cy="68.9" r="4" fill="#16a34a" stroke="white" stroke-width="1"/>
+<text x="435" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#111827">Longueur du message (nombre de lettres, espaces exclus)</text>
+<text transform="translate(24 214) rotate(-90)" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#111827">Vraie clé classée première (%)</text>
+<rect x="493" y="233" width="260" height="97" rx="6" fill="white" fill-opacity="0.92" stroke="#d1d5db"/>
+<line x1="505" y1="258" x2="529" y2="258" stroke="#2563eb" stroke-width="3"/>
+<circle cx="517" cy="258" r="3.5" fill="#2563eb"/>
+<text x="538" y="262" font-family="Arial, sans-serif" font-size="12" fill="#111827">Force brute + khi-deux</text>
+<line x1="505" y1="283" x2="529" y2="283" stroke="#ea580c" stroke-width="3"/>
+<circle cx="517" cy="283" r="3.5" fill="#ea580c"/>
+<text x="538" y="287" font-family="Arial, sans-serif" font-size="12" fill="#111827">Fréquences k=1 + khi-deux</text>
+<line x1="505" y1="308" x2="529" y2="308" stroke="#16a34a" stroke-width="3"/>
+<circle cx="517" cy="308" r="3.5" fill="#16a34a"/>
+<text x="538" y="312" font-family="Arial, sans-serif" font-size="12" fill="#111827">Fréquences k=3 + khi-deux</text>
+</svg>
