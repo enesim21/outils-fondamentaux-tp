@@ -30,7 +30,7 @@ def creer_graphiques(lignes, dossier=None):
         valeurs = [_taux(groupes[longueur], colonne) for longueur in longueurs]
         plt.plot(longueurs, valeurs, marker="o", linewidth=2, label=etiquette)
     plt.xticks(longueurs)
-    plt.ylim(45, 102)
+    plt.ylim(50, 102)
     plt.xlabel("Longueur du message (nombre de lettres, espaces exclus)")
     plt.ylabel("Vraie clé classée première (%)")
     plt.title("Taux de classement en première position")
@@ -51,7 +51,7 @@ def creer_graphiques(lignes, dossier=None):
         valeurs = [_taux(groupes[longueur], colonne) for longueur in longueurs]
         plt.plot(longueurs, valeurs, marker="o", linewidth=2, label=etiquette)
     plt.xticks(longueurs)
-    plt.ylim(45, 102)
+    plt.ylim(50, 102)
     plt.xlabel("Longueur du message (nombre de lettres, espaces exclus)")
     plt.ylabel("Vraie clé présente dans les candidats (%)")
     plt.title("Présence de la clé dans les candidats")
