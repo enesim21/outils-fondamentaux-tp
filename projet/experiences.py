@@ -6,7 +6,6 @@ from projet.attaque import (
     K_AUTORISES,
     attaque_force_brute,
     attaque_frequences,
-    lettres,
     rang_cle,
 )
 from projet.chiffrement import ALPHABET, chiffrer, cles_valides, nettoyer
