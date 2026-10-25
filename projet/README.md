@@ -1,43 +1,42 @@
-# Solveur d'equations
+# Solveur d'équations
 
 Nom : à compléter  
 Groupe : à compléter
 
-Le programme compare la dichotomie, Newton et une methode hybride, avec `brentq` de SciPy comme reference. Les tests portent sur quatre fonctions, dont un cas ou Newton cycle et une racine double sans changement de signe.
+Le but est de comparer plusieurs façons de trouver la racine d'une fonction : la dichotomie, Newton et une méthode qui combine les deux. J'ai aussi ajouté `brentq` de SciPy pour avoir un point de comparaison.
 
-## Lancer
+## Lancer le programme
 
-Depuis la racine du depot :
+À la racine du dépôt, dans le terminal :
 
 ```bash
 python -m pip install -r requirements.txt
 python -m projet.main
+```
+
+Pour lancer les tests :
+
+```bash
 python -m unittest projet.test_methodes -v
 ```
 
-Le programme produit un tableau dans le terminal, un fichier CSV et deux graphiques dans `projet/resultats/`.
+Le programme affiche les résultats dans le terminal. Il crée aussi un fichier CSV et des graphiques dans `projet/resultats/`.
 
-![Comparaison des iterations](resultats/iterations.svg)
+## Quelques résultats
 
-## Premiers resultats
+Les tests ont été faits avec une tolérance de `1e-10`.
 
-Avec une tolerance de `1e-10` :
+- Pour `x² - 2`, Newton trouve la racine en 3 itérations. La dichotomie en prend 29.
+- Pour `cos(x) - x`, Newton converge en 4 itérations, contre 30 pour la dichotomie.
+- Pour `x³ - 2x + 2`, Newton revient à son point de départ et le programme détecte le cycle. La méthode hybride trouve une racine en 23 itérations, alors que Brent en prend 9.
+- Pour `(x - 1)²`, la dichotomie et les méthodes qui ont besoin d'un changement de signe ne fonctionnent pas avec l'intervalle choisi. Newton trouve la racine en 16 itérations.
 
-| Fonction | Dichotomie | Newton | Hybride | Brent (SciPy) |
-|---|---:|---:|---:|---:|
-| x² - 2 | 29 it. | 3 it. | 3 it. | 7 it. |
-| cos(x) - x | 30 it. | 4 it. | 4 it. | 7 it. |
-| x³ - 2x + 2 | 34 it. | cycle | 23 it. | 9 it. |
-| (x - 1)² | echec | 16 it. | echec | echec |
+![Comparaison des itérations](resultats/iterations.svg)
 
-Sur les trois intervalles avec changement de signe, Newton est rapide pour les deux premiers cas. Sur x³ - 2x + 2, il revient a son point de depart et le cycle est detecte. L'hybride trouve une racine, mais prend plus d'iterations que Brent sur cet exemple. La racine double est un contre-exemple utile : les methodes basees sur un changement de signe ne peuvent pas l'encadrer avec l'intervalle choisi.
+## Ce que j'en retiens
 
-Sur ces quatre cas, Newton echoue une fois sur quatre (25 %), a cause d'un cycle. La dichotomie, l'hybride et Brent echouent aussi une fois sur quatre, mais pour une autre raison : l'intervalle de la racine double ne presente aucun changement de signe. Sur les trois cas encadrables, Newton reussit deux fois sur trois, contre trois sur trois pour les trois methodes avec intervalle.
+Newton est rapide quand il converge, mais il ne marche pas avec tous les points de départ. La méthode hybride arrive à récupérer le cas où Newton fait un cycle, mais elle n'est pas toujours la plus rapide. Sur cet exemple, Brent fait moins d'itérations.
 
-Les appels de fonction et l'erreur finale sont aussi sauvegardes dans le CSV. Par exemple, pour x² - 2, Newton demande 3 iterations, contre 29 pour la dichotomie et 7 pour Brent. Pour x³ - 2x + 2, Newton detecte un cycle en 2 iterations ; l'hybride reussit en 23 iterations, alors que Brent en prend 9. Le nombre d'iterations ne suffit pas a lui seul pour comparer toutes les methodes : Newton demande aussi des evaluations de derivee et les points de depart ne sont pas identiques.
+Il y a aussi une limite avec la racine double : la dichotomie a besoin d'un changement de signe entre les deux bornes. Les résultats dépendent donc de la fonction et de l'intervalle choisi. Avec seulement quatre fonctions, on ne peut pas dire que la méthode hybride est toujours meilleure.
 
-## Limites
-
-La methode hybride utilise un intervalle qui doit deja encadrer une racine. Elle ne trouve donc pas toutes les racines possibles. Les quatre fonctions choisies donnent des exemples utiles, mais elles ne suffisent pas a prouver que l'hybride est toujours meilleur. Les resultats dependent de la fonction, du point de depart, de l'intervalle et de la tolerance.
-
-Utilisation de l'IA : une aide a servi a ecrire et organiser une partie du code et des tests. Les tests et les resultats numeriques doivent etre verifies et interpretes avant le rendu.
+Une IA m'a aidé à organiser et à écrire une partie du code. Je dois vérifier les résultats et être capable d'expliquer les méthodes utilisées.
