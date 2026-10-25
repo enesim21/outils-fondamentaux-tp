@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360">
+<rect width="760" height="360" fill="white"/>
+<text x="380" y="32" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#222">Cle retrouvee par l'attaque de frequences</text>
+<line x1="90" y1="285" x2="700" y2="285" stroke="#555"/>
+<line x1="90" y1="70" x2="90" y2="285" stroke="#555"/>
+<line x1="90" y1="177.5" x2="700" y2="177.5" stroke="#ddd"/>
+<line x1="90" y1="70" x2="700" y2="70" stroke="#ddd"/>
+<text x="75" y="290" text-anchor="end" font-family="Arial,sans-serif" font-size="12">0</text>
+<text x="75" y="182" text-anchor="end" font-family="Arial,sans-serif" font-size="12">1.5</text>
+<text x="75" y="75" text-anchor="end" font-family="Arial,sans-serif" font-size="12">3</text>
+<rect x="145" y="285" width="70" height="0" fill="#2563eb"/>
+<rect x="275" y="285" width="70" height="0" fill="#2563eb"/>
+<rect x="405" y="70" width="70" height="215" fill="#2563eb"/>
+<rect x="535" y="70" width="70" height="215" fill="#2563eb"/>
+<text x="180" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">30</text>
+<text x="310" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">80</text>
+<text x="440" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">150</text>
+<text x="570" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">280</text>
+<text x="440" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="14">3 sur 3</text>
+<text x="570" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="14">3 sur 3</text>
+<text x="180" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">0 sur 3</text>
+<text x="310" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="13">0 sur 3</text>
+<text x="395" y="337" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#555">Longueur du message en caracteres</text>
+</svg>
