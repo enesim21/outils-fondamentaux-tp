@@ -15,7 +15,7 @@ python -m projet.main
 python -m unittest projet.test_methodes -v
 ```
 
-Le programme produit un tableau dans le terminal, un fichier CSV et deux graphiques dans `projet/resultats/`.
+Le programme produit un tableau dans le terminal, un fichier CSV et deux graphiques dans `projet/resultats/`. Le graphique des iterations est aussi disponible ici : [voir le graphique](resultats/iterations.svg).
 
 ## Premiers resultats
 
