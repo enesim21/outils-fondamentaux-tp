@@ -4,19 +4,19 @@ Dépôt de mes travaux pratiques d'outils fondamentaux.
 
 ## Contenu
 
-- TP1 : calculs numériques et méthode de Héron
-- TP2 : arithmétique, diviseurs, PGCD et nombres premiers
+- TP1 : calculs numériques
+- TP2 : arithmétique
 - TP3 : polynômes et méthodes numériques
-- TP4 : matrices et résolution de systèmes
-- TP5 : chiffrement affine et analyse de fréquences
+- TP4 : matrices et systèmes
+- TP5 : chiffrement affine
 - TP6 : géométrie plane
+
+Les fichiers Python sont dans le dossier `tp/` et sont nommés simplement `tp1.py`, `tp2.py`, etc.
 
 ## Lancer les tests
 
-Depuis la racine du dépôt :
-
 ```bash
-python -m unittest discover -s tp -p 'test_*.py' -v
+python -m tp.test_solutions
 ```
 
-Relire les réponses et les adapter aux consignes exactes de chaque énoncé avant le rendu.
+Relire les réponses et les adapter aux consignes exactes de chaque TP avant le rendu.
