@@ -1,7 +1,8 @@
 from collections import Counter
 import math
 
-from projet.chiffrement import ALPHABET, TAILLE, cles_valides, dechiffrer
+from tp.tp5 import nettoyer as nettoyer_lettres
+from projet.chiffrement import ALPHABET, TAILLE, cles_valides, inverse_modulaire
 
 FREQUENCES_FR = {
     "A": 0.076, "B": 0.009, "C": 0.032, "D": 0.037,
@@ -13,9 +14,12 @@ FREQUENCES_FR = {
     "Y": 0.003, "Z": 0.003,
 }
 
+K_AUTORISES = (1, 2, 3, 5)
+
 
 def lettres(texte):
-    return [c for c in texte if c in ALPHABET]
+    # Le TP5 sait déjà normaliser un texte en ne gardant que A-Z.
+    return nettoyer_lettres(texte)
 
 
 def score_frequences(texte):
@@ -33,39 +37,67 @@ def score_frequences(texte):
     return score
 
 
+def _score_compte(compte, n):
+    score = 0.0
+    for numero, lettre in enumerate(ALPHABET):
+        attendu = n * FREQUENCES_FR[lettre]
+        if attendu > 0:
+            score += (compte[numero] - attendu) ** 2 / attendu
+    return score
+
+
+def _candidat(texte_chiffre, compte_chiffre, a, b):
+    # La formule de chiffrement permet de permuter les 26 comptes sans les recompter.
+    compte_clair = [compte_chiffre[(a * x + b) % TAILLE] for x in range(TAILLE)]
+    inverse = inverse_modulaire(a)
+    correspondances = "".join(
+        ALPHABET[(inverse * (y - b)) % TAILLE] for y in range(TAILLE)
+    )
+    texte_clair = texte_chiffre.translate(str.maketrans(ALPHABET, correspondances))
+    return {
+        "a": a,
+        "b": b,
+        "texte": texte_clair,
+        "score": _score_compte(compte_clair, len(texte_chiffre)),
+    }
+
+
 def attaque_force_brute(secret):
-    candidats = []
-    for a in cles_valides():
-        for b in range(TAILLE):
-            texte = dechiffrer(secret, a, b)
-            candidats.append({
-                "a": a,
-                "b": b,
-                "texte": texte,
-                "score": score_frequences(texte),
-            })
-    return sorted(candidats, key=lambda c: c["score"])
-
-
-def attaque_frequences(secret):
     texte = lettres(secret)
     if not texte:
         return []
-    lettre_plus_frequente = Counter(texte).most_common(1)[0][0]
-    y = ALPHABET.index(lettre_plus_frequente)
-    e = ALPHABET.index("E")
+
+    # Le TP5 propose toutes_les_cles. Ici, pour des centaines d'expériences,
+    # je précompte les lettres une fois : reconstruire chaque texte avec cette
+    # fonction serait inutilement lent. Les clés valides et l'inverse viennent du TP5.
+    compte_chiffre = [texte.count(lettre) for lettre in ALPHABET]
+    candidats = [
+        _candidat(texte, compte_chiffre, a, b)
+        for a in cles_valides()
+        for b in range(TAILLE)
+    ]
+    return sorted(candidats, key=lambda candidat: candidat["score"])
+
+
+def attaque_frequences(secret, k=1):
+    if type(k) is not int or k not in K_AUTORISES:
+        raise ValueError("k doit valoir 1, 2, 3 ou 5.")
+    texte = lettres(secret)
+    if not texte:
+        return []
+
+    compte = Counter(texte)
+    compte_chiffre = [compte.get(lettre, 0) for lettre in ALPHABET]
+    # Même principe que casser_par_frequences du TP5, généralisé aux k lettres.
+    lettres_courantes = [lettre for lettre, _ in compte.most_common(k)]
+    numero_e = ALPHABET.index("E")
     candidats = []
-    # On suppose que la lettre la plus frequente correspond a E.
-    for a in cles_valides():
-        b = (y - a * e) % TAILLE
-        clair = dechiffrer(secret, a, b)
-        candidats.append({
-            "a": a,
-            "b": b,
-            "texte": clair,
-            "score": score_frequences(clair),
-        })
-    return sorted(candidats, key=lambda c: c["score"])
+    for lettre in lettres_courantes:
+        numero_chiffre = ALPHABET.index(lettre)
+        for a in cles_valides():
+            b = (numero_chiffre - a * numero_e) % TAILLE
+            candidats.append(_candidat(texte, compte_chiffre, a, b))
+    return sorted(candidats, key=lambda candidat: candidat["score"])
 
 
 def rang_cle(candidats, a, b):
