@@ -1,42 +1,21 @@
-# Solveur d'équations
+# Casser un code affine
 
-Nom : à compléter  
-Groupe : à compléter
+J'ai choisi le chiffrement affine parce qu'il utilise le PGCD et les calculs modulo vus en TP. Le programme chiffre un message, le dechiffre, puis essaie de retrouver la cle sans la connaitre.
 
-Le but est de comparer plusieurs façons de trouver la racine d'une fonction : la dichotomie, Newton et une méthode qui combine les deux. J'ai aussi ajouté `brentq` de SciPy pour avoir un point de comparaison.
+## Lancer
 
-## Lancer le programme
+Depuis le dossier principal du depot :
 
-À la racine du dépôt, dans le terminal :
+    python -m pip install -r requirements.txt
+    python -m projet.main
+    python -m unittest projet.test_projet -v
 
-```bash
-python -m pip install -r requirements.txt
-python -m projet.main
-```
+Le programme cree un CSV et deux graphiques dans `projet/resultats/`.
 
-Pour lancer les tests :
+## Ce que je compare
 
-```bash
-python -m unittest projet.test_methodes -v
-```
+La force brute teste les 312 cles possibles. L'attaque par frequences fait une hypothese sur la lettre la plus courante et ne garde que 12 cles. Cette hypothese peut se tromper, surtout sur un message court.
 
-Le programme affiche les résultats dans le terminal. Il crée aussi un fichier CSV et des graphiques dans `projet/resultats/`.
+Les experiences testent plusieurs longueurs de message et plusieurs cles. Le CSV contient les rangs de la vraie cle et le temps mesure. Les temps dependent de l'ordinateur, donc ils peuvent varier d'une execution a l'autre.
 
-## Quelques résultats
-
-Les tests ont été faits avec une tolérance de `1e-10`.
-
-- Pour `x² - 2`, Newton trouve la racine en 3 itérations. La dichotomie en prend 29.
-- Pour `cos(x) - x`, Newton converge en 4 itérations, contre 30 pour la dichotomie.
-- Pour `x³ - 2x + 2`, Newton revient à son point de départ et le programme détecte le cycle. La méthode hybride trouve une racine en 23 itérations, alors que Brent en prend 9.
-- Pour `(x - 1)²`, la dichotomie et les méthodes qui ont besoin d'un changement de signe ne fonctionnent pas avec l'intervalle choisi. Newton trouve la racine en 16 itérations.
-
-![Comparaison des itérations](resultats/iterations.svg)
-
-## Ce que j'en retiens
-
-Newton est rapide quand il converge, mais il ne marche pas avec tous les points de départ. La méthode hybride arrive à récupérer le cas où Newton fait un cycle, mais elle n'est pas toujours la plus rapide. Sur cet exemple, Brent fait moins d'itérations.
-
-Il y a aussi une limite avec la racine double : la dichotomie a besoin d'un changement de signe entre les deux bornes. Les résultats dépendent donc de la fonction et de l'intervalle choisi. Avec seulement quatre fonctions, on ne peut pas dire que la méthode hybride est toujours meilleure.
-
-Une IA m'a aidé à organiser et à écrire une partie du code. Je dois vérifier les résultats et être capable d'expliquer les méthodes utilisées.
+Le chiffrement affine est simple a casser et ne doit pas servir a proteger de vraies donnees. Les frequences des lettres changent aussi selon le texte. Une aide IA a servi a organiser une partie du code ; je dois relire les fonctions et expliquer les resultats.
