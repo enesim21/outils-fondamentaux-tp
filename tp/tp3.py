@@ -1,5 +1,3 @@
-"""TP3 - Polynomes, derivees et recherche de racines."""
-
 import math
 
 
@@ -11,7 +9,7 @@ def evaluer_naif(P, x):
 
 
 def evaluer(P, x):
-    # Methode de Horner : on evite de recalculer les puissances de x.
+    # Methode de Horner.
     total = 0
     for coefficient in reversed(P):
         total = total * x + coefficient
@@ -101,7 +99,7 @@ def trapezes(f, a, b, n):
 
 
 def simpson(f, a, b, n):
-    # Simpson demande un nombre pair de sous-intervalles.
+    # n doit etre pair.
     if n % 2 != 0:
         n += 1
     pas = (b - a) / n
@@ -131,7 +129,7 @@ def tracer_fonction(f, a, b, nombre=200):
 
 
 if __name__ == "__main__":
-    P = [2, 3, 0, 5]  # 2 + 3x + 5x^3
+    P = [2, 3, 0, 5]
     print("P(2), methode naive :", evaluer_naif(P, 2))
     print("P(2), Horner :", evaluer(P, 2))
     print("Derivee :", deriver(P))
