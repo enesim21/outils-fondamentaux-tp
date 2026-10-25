@@ -1,5 +1,3 @@
-"""TP5 - Chiffrement affine et essais de cassage."""
-
 import unicodedata
 
 ALPHABET = 26
@@ -26,7 +24,7 @@ def pgcd(a, b):
 
 
 def inverse_modulaire(a, n):
-    # On cherche un x tel que a*x = 1 modulo n.
+    # Inverse modulo n.
     for x in range(n):
         if (a * x) % n == 1:
             return x
@@ -77,7 +75,7 @@ def casser_par_frequences(secret):
     if not compte:
         return []
 
-    # On suppose que la lettre chiffree la plus courante correspond a E.
+    # E est supposee la plus frequente.
     lettre_courante = max(compte, key=compte.get)
     numero = lettre_vers_nombre(lettre_courante)
     numero_e = lettre_vers_nombre("E")
