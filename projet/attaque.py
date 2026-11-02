@@ -14,7 +14,7 @@ FREQUENCES_FR = {
     "Y": 0.003, "Z": 0.003,
 }
 
-# Les fréquences sont arrondies ; on les normalise pour que leur somme fasse 1.
+# Les fréquences sont arrondies
 TOTAL_FREQUENCES = sum(FREQUENCES_FR.values())
 FREQUENCES_FR_NORMALISEES = {
     lettre: valeur / TOTAL_FREQUENCES for lettre, valeur in FREQUENCES_FR.items()
@@ -23,7 +23,7 @@ K_AUTORISES = (1, 2, 3, 5)
 
 
 def lettres(texte):
-    # Le TP5 sait déjà normaliser un texte en ne gardant que A-Z.
+    # Le TP5 sait déjà normaliser un texte
     return nettoyer_lettres(texte)
 
 
@@ -52,7 +52,7 @@ def _score_compte(compte, n):
 
 
 def _candidat(texte_chiffre, compte_chiffre, a, b):
-    # La formule de chiffrement permet de permuter les 26 comptes sans les recompter.
+    # La formule de chiffrement permet de permuter les 26 comptes sans les recompter
     compte_clair = [compte_chiffre[(a * x + b) % TAILLE] for x in range(TAILLE)]
     inverse = inverse_modulaire(a)
     correspondances = "".join(
@@ -73,8 +73,7 @@ def attaque_force_brute(secret):
         return []
 
     # Le TP5 propose toutes_les_cles. Ici, pour des centaines d'expériences,
-    # je précompte les lettres une fois : reconstruire chaque texte avec cette
-    # fonction serait inutilement lent. Les clés valides et l'inverse viennent du TP5.
+
     compte = Counter(texte)
     compte_chiffre = [compte.get(lettre, 0) for lettre in ALPHABET]
     candidats = [
@@ -94,7 +93,7 @@ def attaque_frequences(secret, k=1):
 
     compte = Counter(texte)
     compte_chiffre = [compte.get(lettre, 0) for lettre in ALPHABET]
-    # Même principe que casser_par_frequences du TP5, généralisé aux k lettres.
+    # Même principe que casser_par_frequences du TP5
     lettres_courantes = [lettre for lettre, _ in compte.most_common(k)]
     numero_e = ALPHABET.index("E")
     candidats = []
