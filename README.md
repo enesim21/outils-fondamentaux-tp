@@ -1,7 +1,5 @@
 # Outils fondamentaux
 
-Enes Avsar, BUT Informatique 1re année, groupe A1, iUT Nord Franche-Comté.
-Travail individuel.
 
 Ce dépôt contient deux parties :
 
