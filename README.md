@@ -1,15 +1,22 @@
 # Outils fondamentaux
 
-- `tp/` : solutions des TP1 à TP6.
-- `projet/` : chiffrement affine, attaques statistiques et expériences reproductibles.
+Enes Avsar, BUT Informatique 1re année, groupe A1, iUT Nord Franche-Comté.
+Travail individuel.
+
+Ce dépôt contient deux parties :
+
+- `tp/` : mes solutions des TP1 à TP6 ;
+- `projet/` : mon projet personnel, **casser un chiffrement affine** avec des attaques statistiques. Le détail est dans [`projet/README.md`](projet/README.md).
+
+## Lancer le code
 
 Depuis la racine du dépôt :
 
 ```bash
 python -m pip install -r requirements.txt
-python -m tp.test_solutions
-python -m unittest projet.test_projet -v
-python -m projet.main
+python -m tp.test_solutions            # tests des TP
+python -m unittest projet.test_projet -v  # tests du projet
+python -m projet.main                  # expériences du projet
 ```
 
-Le dernier lancement génère le CSV détaillé et les trois graphiques PNG/SVG dans `projet/resultats/`.
+La dernière commande refait les 1 800 essais et régénère le CSV et les graphiques dans `projet/resultats/`.
