@@ -6,6 +6,9 @@ from projet.attaque import (
     FREQUENCES_FR_NORMALISEES, attaque_force_brute, attaque_frequences, rang_cle, lettres, score_frequences
 )
 from projet.experiences import lancer_experiences
+from projet.clair_connu import (
+    cles_compatibles, couples_ambigus, experience_clair_connu, resoudre_deux_paires
+)
 
 
 class TestChiffrement(unittest.TestCase):
@@ -98,6 +101,39 @@ class TestChiffrement(unittest.TestCase):
         self.assertEqual(lignes[0]["k3_nb_cles"], 36)
         self.assertIn("brute_rang1", lignes[0])
         self.assertIn("k3_cle_presente", lignes[0])
+
+
+class TestClairConnu(unittest.TestCase):
+    def test_determinant_inversible(self):
+        # E (4) -> C (2) et A (0) -> I (8) avec la clé (5, 8) : écart 4, pas inversible.
+        self.assertIsNone(resoudre_deux_paires(4, 2, 0, 8))
+        # B (1) -> N (13) et A (0) -> I (8) : écart 1, inversible.
+        self.assertEqual(resoudre_deux_paires(1, 13, 0, 8), (5, 8))
+
+    def test_deux_lettres_suffisent_meme_si_determinant_pair(self):
+        secret = chiffrer("EA", 5, 8)
+        self.assertEqual(cles_compatibles("EA", secret), [(5, 8)])
+
+    def test_ecart_13_laisse_douze_cles(self):
+        secret = chiffrer("ER", 5, 8)
+        self.assertEqual(len(cles_compatibles("ER", secret)), 12)
+
+    def test_seuls_les_ecarts_de_13_sont_ambigus(self):
+        ambigus = couples_ambigus()
+        self.assertEqual(len(ambigus), 26)
+        self.assertIn("AN", ambigus)
+        self.assertNotIn("EA", ambigus)
+
+    def test_parametres_invalides(self):
+        with self.assertRaises(ValueError):
+            cles_compatibles("", "")
+        with self.assertRaises(ValueError):
+            cles_compatibles("AB", "A")
+
+    def test_experience_courte(self):
+        lignes = experience_clair_connu(nombre_essais=20, graine=3, lettres_connues=(1, 4))
+        self.assertEqual(lignes[0]["candidats_moyens"], 12.0)
+        self.assertEqual(len(lignes), 2)
 
 
 if __name__ == "__main__":

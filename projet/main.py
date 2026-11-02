@@ -8,6 +8,7 @@ from projet.experiences import (
     enregistrer,
 )
 from projet.graphique import creer_graphiques
+from projet.clair_connu import experience_clair_connu, enregistrer_clair_connu
 
 
 def _taux(lignes, colonne):
@@ -62,6 +63,16 @@ def main():
     chemin = enregistrer(lignes)
     creer_graphiques(lignes)
     afficher_bilan(lignes)
+    print("\nAttaque à clair connu : clés possibles selon le nombre de lettres connues")
+    print("Lettres connues | Clé unique | Déterminant inversible | Candidats moyens")
+    lignes_clair = experience_clair_connu()
+    for ligne in lignes_clair:
+        print(
+            f"{ligne['lettres_connues']:>15} | {ligne['cle_unique_pourcent']:>9.1f}% | "
+            f"{ligne['determinant_inversible_pourcent']:>21.1f}% | {ligne['candidats_moyens']:>16.2f}"
+        )
+    enregistrer_clair_connu(lignes_clair)
+
     print("\nCSV enregistré dans :", chemin)
     print("Graphiques PNG/SVG enregistrés dans projet/resultats/.")
 
