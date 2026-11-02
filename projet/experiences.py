@@ -10,7 +10,7 @@ from projet.attaque import (
 )
 from projet.chiffrement import ALPHABET, chiffrer, cles_valides, nettoyer
 
-# Cinq paragraphes français assez longs pour tirer des fenêtres de 280 lettres.
+# Cinq paragraphes français assez longs pour tirer des fenêtres de 280 lettres
 TEXTES_FRANCAIS = (
     ("apprentissage", """Quand on apprend la programmation, on avance en faisant des essais, en lisant les erreurs et en corrigeant peu à peu son raisonnement. Un programme utile ne se limite pas à produire une réponse : il doit aussi permettre de comprendre comment cette réponse a été obtenue. En informatique, on compare parfois plusieurs méthodes sur les mêmes données, puis on note précisément les conditions de l'expérience. Cette démarche évite de confondre une impression avec un résultat mesuré. Elle aide également à repérer les limites d'un algorithme, notamment lorsque les données sont courtes, incomplètes ou peu représentatives. La clarté du code compte autant que le résultat final, car une autre personne doit pouvoir le relire, le tester et proposer des améliorations."""),
     ("ville", """Dans une ville, les rues changent de rythme au fil de la journée. Le matin, les bus se remplissent, les commerces ouvrent et les étudiants rejoignent leurs salles de cours. Plus tard, les places deviennent des lieux de rencontre, tandis que les bibliothèques offrent un espace calme pour lire ou travailler. Les habitants partagent des habitudes, mais ils n'utilisent pas tous les mêmes itinéraires ni les mêmes services. Pour comprendre la vie urbaine, il faut donc observer plusieurs quartiers et tenir compte des différences entre les horaires, les saisons et les besoins. Un exemple isolé peut être intéressant, sans suffire à décrire toute une ville."""),
@@ -32,7 +32,7 @@ def _fenetre_aleatoire(texte, longueur, generateur):
     debut = generateur.randrange(len(positions) - longueur + 1)
     position_debut = positions[debut]
     position_fin = positions[debut + longueur - 1] + 1
-    # La fenêtre contient exactement 'longueur' lettres ; espaces et ponctuation restent.
+    # La fenêtre contient exactement 'longueur' lettres ; espaces et ponctuation restent
     return texte[position_debut:position_fin]
 
 
@@ -52,7 +52,7 @@ def lancer_experiences(nombre_essais=ESSAIS_PAR_LONGUEUR, graine=GRAINE_DEFAUT, 
         for numero_essai in range(1, nombre_essais + 1):
             nom_texte, texte_source = generateur.choice(TEXTES_FRANCAIS)
             clair = _fenetre_aleatoire(texte_source, longueur, generateur)
-            # Tirage uniforme : 12 valeurs possibles pour a et 26 pour b, soit 312 clés.
+            # Tirage uniforme : 12 valeurs possibles pour a et 26 pour b, soit 312 clés
             a = generateur.choice(valeurs_a)
             b = generateur.randrange(26)
             secret = chiffrer(clair, a, b)
