@@ -15,13 +15,13 @@ def nettoyer(texte):
 
 
 def inverse_modulaire(a, modulo=TAILLE):
-    # Réutilise l'algorithme du TP5, avec le modulo 26 par défaut.
+    # Réutilise l'algorithme du TP5 avec le modulo 26
     return _inverse_modulaire_tp5(a, modulo)
 
 
 def _verifier_cle(a, b):
-    # Si a=2, A (x=0) et N (x=13) donnent le meme resultat, car 2*13=26.
-    # Il faut donc pgcd(a, 26)=1 pour que chaque lettre ait un inverse unique.
+    # Si a=2, A (x=0) et N (x=13) donnent le meme resultat, car 2*13=26
+    # Il faut donc pgcd(a, 26)=1 pour que chaque lettre ait un inverse
     if type(a) is not int or pgcd(a, TAILLE) != 1:
         raise ValueError("a doit etre un entier premier avec 26.")
     if type(b) is not int or not 0 <= b < TAILLE:
