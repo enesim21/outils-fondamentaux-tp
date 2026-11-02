@@ -18,3 +18,5 @@ python -m projet.main                  # expériences du projet
 ```
 
 La dernière commande refait les 1 800 essais et régénère le CSV et les graphiques dans `projet/resultats/`.
+
+J’ai utilisé un assistant IA pour : les graphiques (je n’arrivais pas à les exporter en SVG), le fichier main.py, l’attaque à clair connu (clair_connu.py et ses tests) et la rédaction du README. J’ai relu le code, retouché les commentaires et lancé moi-même les tests et les expériences.
