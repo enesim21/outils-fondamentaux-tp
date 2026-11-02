@@ -77,7 +77,7 @@ class TestChiffrement(unittest.TestCase):
             "les mêmes itinéraires ni les mêmes services."
         )
         comptes = Counter(lettres(clair))
-        # Dans cette phrase, S apparaît 16 fois et E 15 fois.
+        # Dans cette phrase, S apparaît 16 fois et E 15 fois
         self.assertEqual(comptes["S"], 16)
         self.assertEqual(comptes["E"], 15)
         secret = chiffrer(clair, 5, 8)
@@ -105,9 +105,9 @@ class TestChiffrement(unittest.TestCase):
 
 class TestClairConnu(unittest.TestCase):
     def test_determinant_inversible(self):
-        # E (4) -> C (2) et A (0) -> I (8) avec la clé (5, 8) : écart 4, pas inversible.
+        # E (4) -> C (2) et A (0) -> I (8) avec la clé (5, 8) : écart 4, pas inversible
         self.assertIsNone(resoudre_deux_paires(4, 2, 0, 8))
-        # B (1) -> N (13) et A (0) -> I (8) : écart 1, inversible.
+        # B (1) -> N (13) et A (0) -> I (8) : écart 1, inversible
         self.assertEqual(resoudre_deux_paires(1, 13, 0, 8), (5, 8))
 
     def test_deux_lettres_suffisent_meme_si_determinant_pair(self):
