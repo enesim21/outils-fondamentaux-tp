@@ -27,7 +27,7 @@ def resoudre_deux_paires(x1, y1, x2, y2):
     determinant = (x1 - x2) % TAILLE
     if pgcd(determinant, TAILLE) != 1:
         return None
-    # En soustrayant les deux équations : a * (x1 - x2) = y1 - y2 (mod 26).
+    # En soustrayant les deux équations : a * (x1 - x2) = y1 - y2 (mod 26)
     a = (y1 - y2) * inverse_modulaire(determinant) % TAILLE
     b = (y1 - a * x1) % TAILLE
     return a, b
@@ -43,7 +43,7 @@ def cles_compatibles(clair, secret):
         raise ValueError("Il faut au moins une lettre connue.")
     resultat = []
     for a in cles_valides():
-        # La première paire fixe b pour chaque a ; on vérifie les autres.
+        # La première paire fixe b pour chaque a et on verifie les autres
         b = (ys[0] - a * xs[0]) % TAILLE
         if all((a * x + b) % TAILLE == y for x, y in zip(xs, ys)):
             resultat.append((a, b))
@@ -89,7 +89,7 @@ def experience_clair_connu(nombre_essais=ESSAIS_CLAIR_CONNU, graine=GRAINE_DEFAU
             b = generateur.randrange(TAILLE)
             secret = chiffrer(clair, a, b)
             candidats = cles_compatibles(clair, secret)
-            # La vraie clé est toujours compatible : seul le nombre compte.
+            # La vraie clé est toujours compatible : seul le nombre compte
             total_candidats += len(candidats)
             uniques += len(candidats) == 1
             if m >= 2:
