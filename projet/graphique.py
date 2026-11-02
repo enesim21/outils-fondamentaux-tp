@@ -20,7 +20,6 @@ def creer_graphiques(lignes, dossier=None):
         for longueur in longueurs
     }
 
-    # Le taux de réussite signifie ici « vraie clé classée première par le khi-deux ».
     plt.figure(figsize=(8, 4.8))
     for colonne, etiquette in (
         ("brute_rang1", "Force brute + khi-deux"),
@@ -41,7 +40,7 @@ def creer_graphiques(lignes, dossier=None):
     plt.savefig(dossier / "taux_reussite.svg")
     plt.close()
 
-    # La présence de la clé est une mesure différente du classement par score.
+    # La présence de la clé est une mesure différente du classement par score
     plt.figure(figsize=(8, 4.8))
     for colonne, etiquette in (
         ("brute_cle_presente", "Force brute"),
