@@ -72,8 +72,7 @@ def attaque_force_brute(secret):
     if not texte:
         return []
 
-    # Le TP5 propose toutes_les_cles. Ici, pour des centaines d'expériences,
-
+    # On compte les lettres une seule fois, plus rapide que toutes_les_cles du TP5
     compte = Counter(texte)
     compte_chiffre = [compte.get(lettre, 0) for lettre in ALPHABET]
     candidats = [

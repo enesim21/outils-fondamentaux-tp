@@ -46,25 +46,16 @@ Exemple d'échec : la phrase « Les habitants partagent des habitudes, mais ils 
 
 ## Attaque à clair connu
 
-Si on connaît deux lettres en clair (x1, x2) et leur version chiffrée (y1, y2), on a le système :
+Si on connaît deux lettres en clair et leur version chiffrée, on a deux équations `a*x + b = y (mod 26)`. C'est un système 2×2 comme au TP4. D'après le TP4, il faudrait que le déterminant `x1 - x2` soit inversible modulo 26, ce qui n'arrive qu'une fois sur deux. Mais comme `a` doit être impair, la clé est souvent unique quand même.
 
-```
-a*x1 + b = y1  (mod 26)
-a*x2 + b = y2  (mod 26)
-```
+| Lettres connues | Clé unique |
+|---:|---:|
+| 1 | 0 % |
+| 2 | 87,9 % (déterminant inversible : 49,3 %) |
+| 3 | 98,4 % |
+| 4 et plus | 100 % |
 
-C'est un système 2×2 comme au TP4, de déterminant `x1 - x2`. En le soustrayant, on obtient `a*(x1 - x2) = y1 - y2`. D'après le TP4, il faudrait que le déterminant soit inversible, donc premier avec 26, ce qui n'arrive que dans environ la moitié des cas.
-
-En testant, j'ai trouvé beaucoup mieux. Comme `a` doit être impair, la clé reste unique même quand le déterminant est pair. Sur les 650 couples de lettres différentes, seuls les 26 couples écartés de 13 (AN, ER, ...) laissent plusieurs clés : dans ce cas, les 12 valeurs de `a` marchent toutes.
-
-| Lettres connues | Clé unique | Déterminant inversible | Clés possibles en moyenne |
-|---:|---:|---:|---:|
-| 1 | 0 % | — | 12 |
-| 2 | 87,9 % | 49,3 % | 2,33 |
-| 3 | 98,4 % | — | 1,18 |
-| 4 et plus | 100 % | — | 1 |
-
-Avec deux lettres connues, les 121 échecs sur 1 000 viennent de deux lettres identiques (50 cas, comme « SS ») ou de deux lettres écartées de 13 (71 cas, souvent E et R). Il suffit donc de connaître quatre lettres du message, contre une vingtaine de lettres chiffrées pour les attaques statistiques.
+Avec deux lettres, ça rate seulement quand elles sont identiques (comme « SS ») ou écartées de 13 (comme E et R). Il suffit donc de connaître 4 lettres du message.
 
 ## Limites
 

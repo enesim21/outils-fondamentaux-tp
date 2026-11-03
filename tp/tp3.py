@@ -1,5 +1,3 @@
-import math
-
 
 def evaluer_naif(P, x):
     total = 0

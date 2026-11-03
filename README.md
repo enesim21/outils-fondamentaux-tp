@@ -1,10 +1,9 @@
 # Outils fondamentaux
 
-
 Ce dépôt contient deux parties :
 
- `tp/` : mes solutions des TP1 à TP6 ;
- `projet/` : mon projet personnel, **casser un chiffrement affine** avec des attaques statistiques. Le détail est dans [`projet/README.md`](projet/README.md).
+- `tp/` : mes solutions des TP1 à TP6 ;
+- `projet/` : mon projet personnel, **casser un chiffrement affine** avec des attaques statistiques. Le détail est dans [`projet/README.md`](projet/README.md).
 
 ## Lancer le code
 

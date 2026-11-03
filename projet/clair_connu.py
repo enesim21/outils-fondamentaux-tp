@@ -16,14 +16,8 @@ def _numeros(texte):
 
 
 def resoudre_deux_paires(x1, y1, x2, y2):
-    """Résout le système  a*x1 + b = y1  et  a*x2 + b = y2  (mod 26).
-
-    Sous forme matricielle : [[x1, 1], [x2, 1]] * [a, b] = [y1, y2].
-    Le déterminant vaut x1 - x2. Comme au TP4, la solution est unique si le
-    déterminant est inversible, mais ici « inversible » veut dire premier
-    avec 26 (et pas seulement non nul).
-    Renvoie (a, b), ou None si le déterminant n'est pas inversible modulo 26.
-    """
+    # Système a*x1 + b = y1 et a*x2 + b = y2 (mod 26), de déterminant x1 - x2.
+    # Renvoie None si le déterminant n'est pas premier avec 26.
     determinant = (x1 - x2) % TAILLE
     if pgcd(determinant, TAILLE) != 1:
         return None
@@ -34,7 +28,7 @@ def resoudre_deux_paires(x1, y1, x2, y2):
 
 
 def cles_compatibles(clair, secret):
-    """Toutes les clés valides (a, b) qui envoient chaque lettre de clair sur secret."""
+    # Toutes les clés (a, b) qui transforment clair en secret
     xs = _numeros(clair)
     ys = _numeros(secret)
     if len(xs) != len(ys):
@@ -51,10 +45,7 @@ def cles_compatibles(clair, secret):
 
 
 def couples_ambigus():
-    """Couples de deux lettres différentes qui laissent plusieurs clés possibles.
-
-    Le résultat ne dépend pas de la clé utilisée : on prend (5, 8).
-    """
+    # Couples de lettres différentes qui laissent plusieurs clés (avec la clé 5, 8)
     ambigus = []
     for x1 in range(TAILLE):
         for x2 in range(TAILLE):
@@ -68,12 +59,8 @@ def couples_ambigus():
 
 def experience_clair_connu(nombre_essais=ESSAIS_CLAIR_CONNU, graine=GRAINE_DEFAUT,
                            lettres_connues=LETTRES_CONNUES):
-    """Combien de lettres du message faut-il connaître pour trouver la clé ?
-
-    À chaque essai : une clé au hasard, un morceau d'un des trois paragraphes,
-    et on suppose connues ses m premières lettres. On compare la méthode du
-    déterminant (deux premières lettres) avec la liste des clés compatibles.
-    """
+    # Combien de lettres connues faut-il pour trouver la clé ?
+    # Clé et morceau de texte au hasard parmi les cinq paragraphes.
     if type(nombre_essais) is not int or nombre_essais < 1:
         raise ValueError("nombre_essais doit etre un entier positif.")
     generateur = random.Random(graine)
